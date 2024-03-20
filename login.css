@@ -5,6 +5,7 @@
     --graydown: rgb(32, 32, 32);
     --graymiddle: rgb(20, 20, 20);
     --graytop: rgb(10, 10, 10);
+    --main: rgb(99, 22, 214)
 }
 
 * {
@@ -109,6 +110,7 @@ main {
     border: 1px solid rgb(39, 38, 38);
     max-width: 500px;
     margin: 0 auto;
+    margin-top: -10px;
 }
 
 /*Bejelentkezés*/
@@ -197,7 +199,7 @@ main {
     position: absolute;
     /* margin-left: -30px; */
     right: 10px;
-    top: 10px;
+    top: 12px;
     color: gray;
     transition: all .1s;
 }
@@ -207,13 +209,43 @@ main {
 .passYes:hover, .passNo:hover{
     color: white;
     font-size: 1.55rem;
-    top: 10.5px;
+    top: 12.5px;
     right: 9px;
 }
 .passYes:active, .passNo:active{
     font-size: 1.5rem;
-    top: 10px;
+    top: 12px;
     right: 10px;
 }
 
 
+/* Jegyezzen meg gomb */
+.rememberme{
+    text-align: start;
+    margin: 20px auto 0 auto;
+    width: 320px;
+    display: flex;
+    gap: 10px;
+    accent-color: var(--main);
+    
+}
+
+
+/* Bejelentkezés gomb */
+.loginButton{
+    margin: 0 auto;
+    background-color: var(--main);
+    min-width: 320px;
+    text-align: center;
+    padding: 12px 50px;
+    border-radius: 30px;
+    transition:all .2s;
+    margin-top: -10px;
+}
+.loginButton a{
+    color: white;
+    text-decoration: none;
+}
+.loginButton:hover{
+    scale: 1.03;
+}
