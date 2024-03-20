@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bejelentkezés</title>
     <link rel="stylesheet" href="login.css">
-    <script src="login.js"></script>
+    <script src="login.js" defer></script>
 </head>
 
 <body>
@@ -37,7 +37,14 @@
                 </div>
                 <div class="password">
                     <label for="password">Jelszó</label>
-                    <input type="password" name="" id="password" placeholder="Jelszó">
+                    <div class="passdiv">
+                        <input type="password" name="" id="password" placeholder="Jelszó">
+                        <ion-icon name="eye-outline" class="passYes"></ion-icon>
+                        <ion-icon name="eye-off-outline" class="passNo"></ion-icon>
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

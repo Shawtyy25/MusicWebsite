@@ -169,6 +169,9 @@ main {
     border-radius: 5px;
     transition: border .2s;   
     outline: none;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 .password input:hover{
     border: 1px solid white;
@@ -177,7 +180,33 @@ main {
     outline: 0;
     box-shadow: 0px 0px 1px 2px white inset;    
 }
+.passdiv{
+    position: relative;
+}
 
-
+/* Jelszó láthatóság gombja */
+.passYes, .passNo{
+    size: 1;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    /* margin-left: -30px; */
+    right: 10px;
+    top: 10px;
+    color: gray;
+    transition: all .1s;
+}
+.passYes{
+    display: none;
+}
+.passYes:hover, .passNo:hover{
+    color: white;
+    font-size: 1.6rem;
+    top: 10.5px;
+}
+.passYes:active, .passNo:active{
+    font-size: 1.5rem;
+    top: 10px;
+}
 
 
