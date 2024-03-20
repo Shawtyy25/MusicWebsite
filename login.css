@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+:root{
+    --asd: rgb(1,1,1);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    font-family: "Madimi One", sans-serif;
+    background-color: rgb(22, 22, 22);
+    color: white;
+    padding: 2rem;
+    display: flex;
+}
+
+.musicIcon {
+    font-size: 2.5rem;
+}
+
+main {
+    background-image: linear-gradient(rgb(32, 32, 32), rgb(24, 23, 23), rgb(15, 15, 15));
+    height: 100vh;
+    padding: 50px;
+}
+
+.loginWindow {
+    font-family: sans-serif;
+    background-image: linear-gradient(rgb(27, 27, 27), rgb(26, 25, 25), rgb(39, 38, 38));
+    color: white;
+    margin: 0 auto;
+    width: 800px;
+    padding: 70px 50px;  
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3.2rem;
+}
+
+.loginWindow h1{
+    letter-spacing: 2px;  
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Google bejelentkezési fül */
+.google{
+    display: flex;
+    align-items: center;
+    border: 1.2px solid rgb(85, 84, 84);
+    max-width: 300px;
+    padding: 12px 20px;
+    text-align: center;
+    border-radius: 100px;
+    margin: 0 auto;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.google:hover{
+    border: 1.2px solid #fff;
+}
+.google ion-icon{
+    font-size: 1.5rem;
+    
+}
+.google a{
+    margin: 0 auto;
+}
+
+/* Facebook bejelentkezési fül */
+.facebook{
+    display: flex;
+    align-items: center;
+    border: 1.2px solid rgb(85, 84, 84);
+    max-width: 300px;
+    padding: 12px 20px;
+    text-align: center;
+    border-radius: 100px;
+    margin: 0 auto;
+    font-weight: 700;
+    cursor: pointer;
+}
+.facebook:hover{
+    border: 1.2px solid #fff;
+}
+.facebook ion-icon{
+    font-size: 1.5rem;
+    
+}
+.facebook a{
+    margin: 0 auto;
+}
+.line hr{
+    border: 1px solid rgba(167, 166, 166, .2);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
