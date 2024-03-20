@@ -12,4 +12,6 @@ passYes.addEventListener('click', () => {
     passYes.style.display = 'none'
     passNo.style.display = 'block'
     passwordInput.type = 'password'
+
 })
+
