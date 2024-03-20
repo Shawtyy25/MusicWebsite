@@ -1,7 +1,132 @@
-:root {
-    --mainColor: rgb(0,255,0)
-    --white: #fff
-    --black: #000
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:root {
+    --mainC: rgb(0, 255, 0);
+    --white: #fff;
+    --black: #000;
+}
+
+.line{
+    color: white;
+}
+
+/* Bal oldali rész */
+
+main{
+    display: flex;
+}
+
+.leftSide {
+    width: 15rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(rgb(83, 83, 83), rgb(22, 22, 22));
+    background-repeat: no-repeat;
+    row-gap: .5rem;
+}
+
+.leftSideTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.icons{
+    font-size: 2.5rem;
+    color: white;
+}
+
+.leftMainIcons{
+    font-size: 1.3rem;
+}
+
+.leftSideTitleText{
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--mainC);
+    text-shadow: 0 0 7px #000,
+    0 0 1px #000,
+    0 0 1px #000,
+    0 0 2px #0fa,
+    0 0 2px #0fa,
+    0 0 2px #0fa,
+    0 0 2px #0fa,
+    0 0 51px #0fa;
+}
+
+.leftSideFlex {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 2rem;
+    width: 13rem;
+    padding: .5rem 3rem .3rem 1rem;
+    transition: all .3s;
+    color: rgb(196, 196, 196);
+}
+
+.leftSideFlex h5 {
+    text-align: center;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.leftSideFlex:hover {
+    background-color: var(--mainC);
+    color: var(--black);
+}
+
+.leftSideMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.leftSidePlaylists{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.leftSidePlaylistsText{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+    width: 13rem;
+}
+
+.leftSidePlaylistsText h4 a{
+    text-decoration: none;
+    color: white;
+    transition: all .3s;
+}
+
+.leftSidePlaylistsText h4 a:hover{
+    color: var(--mainC);
+}
+
+.leftSidePlaylistsText .leftMainIcons{
+    color: var(--mainC);
+}
+
+.middle{
+    z-index: 100;
+    width: 100vw;
+    padding: 1rem;
+    background-color: black;
+}
