@@ -17,14 +17,18 @@
         <h1>Sound</h1>
     </header>
     <main>
-        <div class="loginWindow">
-            <h1>Bejelentkezés az oldalra</h1>
-            <div class="viaLogin">
-                <div class="google">
+        <div class="loginWindow row">
+            <h1>Bejelentkezés a Soundra</h1>
+            <div class="errorMessege">
+                <ion-icon name="alert-circle-outline" class="errorIcon"></ion-icon>
+                <p></p>
+            </div>
+            <div class="viaLogin ">
+                <div class="google col-lg-8 col-md-8 col-12">
                     <ion-icon name="logo-google"></ion-icon>
                     <a>Folytatás a Google-lal</a>
                 </div>
-                <div class="facebook">
+                <div class="facebook col-lg-8 col-md-8 col-12">
                     <ion-icon name="logo-facebook"></ion-icon>
                     <a>Folytatás a Facebookkal</a>
                 </div>
@@ -33,11 +37,12 @@
                 <hr>
             </div>
             <div class="loginDocument">
-                <div class="email">
+                <div class="email col-lg-8 col-md-8 col-12">
                     <label for="email">E-mail-cím vagy felhasználónév</label>
                     <input type="text" id="email" placeholder="E-mail-cím vagy felhasználónév">
+                    <p></p>
                 </div>
-                <div class="password">
+                <div class="password col-lg-8 col-md-8 col-12">
                     <label for="password">Jelszó</label>
                     <div class="passdiv">
                         <input type="password" name="" id="password" placeholder="Jelszó">
@@ -47,18 +52,25 @@
                 </div>
 
             </div>
-            <div class="rememberme">
+            <div class="rememberme col-lg-8 col-md-8 col-12">
                 <input type="checkbox" id="rmeButton">
                 <label for="rmeButton">Jegyezzen meg</label>
             </div>
 
-            <div class="loginButton">
-                <a href="">Bejelentkezés</a>
+            <div class="loginButton col-lg-8 col-md-8 col-12">
+                <a>Bejelentkezés</a>
             </div>
 
             <!-- Elfelejtettem a jelszavam lehetőség -->
-            <div class="forgotPass">
+            <div class="forgotPass col-lg-5 col-md-8 col-12">
                 <a href="">Elfelejtetted a jelszavad?</a>
+            </div>
+            <div class="line secondline">
+                <hr>
+            </div>
+            <div class="registration col-lg-7 col-md-7 col-7">
+                <p>Még nincs fiókod?</p>
+                <a href="">Regisztráció a soundra</a>
             </div>
         </div>
 

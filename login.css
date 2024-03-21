@@ -2,7 +2,7 @@
 
 
 :root {
-    --graydown: rgb(32, 32, 32);
+    --graydown: rgb(26, 25, 25);
     --graymiddle: rgb(20, 20, 20);
     --graytop: rgb(10, 10, 10);
     --main: rgb(99, 22, 214)
@@ -18,17 +18,24 @@ header {
     font-family: "Madimi One", sans-serif;
     background-color: rgb(22, 22, 22);
     color: white;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
+    align-items: center;
+}
+header h1{
+    font-size: 2.3rem;
 }
 
 .musicIcon {
-    font-size: 2.5rem;
+    margin-top: -10px;
+    font-size: 2.3rem;
 }
 
 main {
     background-image: linear-gradient(rgb(32, 32, 32), rgb(20, 20, 20), rgb(10, 10, 10));
-    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
     padding: 50px;
 }
 
@@ -37,7 +44,7 @@ main {
     background-image: linear-gradient(rgb(10, 10, 10), rgb(20, 20, 20), rgb(32, 32, 32));
     color: white;
     margin: 0 auto;
-    width: 700px;
+    max-width: 700px;
     padding: 70px 50px;
     border-radius: 20px;
     display: flex;
@@ -56,7 +63,6 @@ main {
     display: flex;
     align-items: center;
     border: 1.2px solid rgb(85, 84, 84);
-    max-width: 300px;
     padding: 12px 20px;
     text-align: center;
     border-radius: 100px;
@@ -72,7 +78,6 @@ main {
 
 .google ion-icon {
     font-size: 1.5rem;
-
 }
 
 .google a {
@@ -84,7 +89,6 @@ main {
     display: flex;
     align-items: center;
     border: 1.2px solid rgb(85, 84, 84);
-    max-width: 300px;
     padding: 12px 20px;
     text-align: center;
     border-radius: 100px;
@@ -107,7 +111,7 @@ main {
 }
 
 .line hr {
-    border: 1px solid rgb(39, 38, 38);
+    border: 1px solid rgb(112, 105, 105);
     max-width: 500px;
     margin: 0 auto;
     margin-top: -10px;
@@ -132,9 +136,12 @@ main {
 .email {
     display: flex;
     flex-direction: column;
-    width: 320px;
     gap: 8px;
 
+}
+
+.email p{
+    display: none;
 }
 
 .email label {
@@ -167,7 +174,6 @@ main {
 .password {
     display: flex;
     flex-direction: column;
-    width: 320px;
     gap: 8px;
 }
 
@@ -215,7 +221,6 @@ main {
     color: gray;
     transition: all .1s;
 }
-
 .passYes {
     display: none;
 }
@@ -223,24 +228,18 @@ main {
 .passYes:hover,
 .passNo:hover {
     color: white;
-    font-size: 1.55rem;
-    top: 12.5px;
-    right: 9px;
+    scale: 1.1;
 }
 
 .passYes:active,
 .passNo:active {
-    font-size: 1.5rem;
-    top: 12px;
-    right: 10px;
+    scale: 1;
 }
-
 
 /* Jegyezzen meg gomb */
 .rememberme {
     text-align: start;
     margin: 20px auto 0 auto;
-    width: 320px;
     display: flex;
     gap: 10px;
     accent-color: var(--main);
@@ -252,12 +251,12 @@ main {
 .loginButton {
     margin: 0 auto;
     background-color: var(--main);
-    min-width: 320px;
     text-align: center;
     padding: 12px 50px;
     border-radius: 30px;
     transition: all .2s;
     margin-top: -10px;
+    cursor: pointer;
 }
 
 .loginButton a {
@@ -268,15 +267,133 @@ main {
 .loginButton:hover {
     scale: 1.03;
 }
+.loginButton:active{
+    scale: .98;
+}
 
 /* Elfelejtetted a jelszavad gomb */
 
 .forgotPass{
     margin: -20px auto;
+    text-align: center;
 }
 .forgotPass a{
     color: white;
 }
 .forgotPass a:hover{
     color: var(--main);
+}
+
+/* regisztráció */
+.registration{
+    display: flex;   
+    text-align: center;
+    margin: 0 auto;
+    column-gap: 20px;
+}
+.registration p{
+    text-align: center;
+    color: rgb(117, 113, 113);
+}
+.registration a{
+    text-align: center;
+    color: white;
+}
+.registration a:hover{
+    color: var(--main);
+}
+
+/* error üzenet beállításai */
+.errorMessege{
+    margin: 0;
+    display: flex;
+    column-gap: 20px;
+    background-color: rgba(255, 0, 0, 0.87);
+    font-size: .8rem;
+    text-align: center;
+    align-items: center;
+    padding: 10px 20px;
+    display: none;
+}
+.errorMessege p{
+    margin: 0;
+}
+.errorIcon{
+    font-size: 1.5rem;
+}
+
+
+@media (max-width: 767px){
+    .loginButton:hover{
+        scale: 1;
+    }
+    header{
+        background-color: var(--graytop);
+    }
+    main{
+        padding: 0;
+    }
+    .loginWindow{
+        border-radius: 0;
+        margin: 0;
+        max-width: none;
+    }
+    header{
+        margin-bottom: -30px;
+    }
+    .registration{
+        margin-bottom: 10px;
+    }
+    
+}
+@media (max-width: 676px){
+    .registration{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 598px){
+    header{
+        margin-bottom: -20px;
+    }
+    .loginWindow{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media (max-width: 534px){
+    .loginWindow h1{
+        text-align: left;
+    }
+    .loginWindow .secondline{
+        margin-bottom: -40px;
+    }
+    .registration{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 513px){
+    header{
+        background-color: var(--graytop);
+    }
+    .loginWindow{
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .loginWindow h1{
+        text-align: left;
+    }
+    .loginWindow .secondline{
+        margin-bottom: -40px;
+    }
+
+    .registration{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        
+    }
 }
