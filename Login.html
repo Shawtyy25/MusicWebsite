@@ -20,7 +20,7 @@
         <div class="loginWindow row">
             <h1>Bejelentkezés a Soundra</h1>
             <div class="errorMessege">
-                <ion-icon name="alert-circle-outline" class="errorIcon"></ion-icon>
+                <ion-icon name="alert-circle-outline" class="errorIconUp"></ion-icon>
                 <p></p>
             </div>
             <div class="viaLogin ">
@@ -41,7 +41,7 @@
                     <label for="email">E-mail-cím vagy felhasználónév</label>
                     <input type="text" id="email" placeholder="E-mail-cím vagy felhasználónév">
                     <div class="errorFromemail">
-                        <ion-icon name="alert-circle"></ion-icon>
+                        <ion-icon name="alert-circle" class="errorIcon"></ion-icon>
                         <p class="emailError">Cdadnb doas dad nasod nasn dpna da</p>
                     </div>
                 </div>
@@ -53,7 +53,10 @@
                         <ion-icon name="eye-off-outline" class="passNo"></ion-icon>
                     </div>
                 </div>
-
+            </div>
+            <div class="errorFrompass col-lg-8">
+                <ion-icon name="alert-circle" class="errorIcon"></ion-icon>
+                <p class="passError"></p>
             </div>
             <div class="rememberme col-lg-8 col-md-8 col-12">
                 <input type="checkbox" id="rmeButton">

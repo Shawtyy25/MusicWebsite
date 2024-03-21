@@ -142,9 +142,9 @@ main {
     display: none;
     column-gap: 5px;
 }
-.errorFromemail ion-icon{
+.errorIcon{
     font-size: 1.3rem;
-    color: rgb(231, 58, 58);
+    color: rgb(245, 0, 0);
 }
 
 .email p{
@@ -214,6 +214,16 @@ main {
 
 .passdiv {
     position: relative;
+}
+
+.errorFrompass{
+    column-gap: 5px;
+    display: none;
+    margin: 10px auto -50px auto;
+}
+.errorFrompass p{
+    font-size: .9rem;
+    color: rgb(207, 35, 35);
 }
 
 /* Jelszó láthatóság gombja */
@@ -326,7 +336,7 @@ main {
 .errorMessege p{
     margin: 0;
 }
-.errorIcon{
+.errorIconUp{
     font-size: 1.5rem;
 }
 

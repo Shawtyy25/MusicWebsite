@@ -7,6 +7,8 @@ const error = document.querySelector('.errorMessege')
 const errorP = document.querySelector('.errorMessege p')
 const emailError = document.querySelector('.emailError')
 const emailErrorDiv = document.querySelector('.errorFromemail')
+const passErrorDiv = document.querySelector('.errorFrompass')
+const passError = document.querySelector('.passError')
 
 const user_Email = ['gaspardani719@gmail.com', 'abelszolnoki@gmail.com']
 const user_Username = ['gasparboss', 'shawtyy']
@@ -73,5 +75,25 @@ emailInput.addEventListener('focusout', () => {
         emailInput.style.boxShadow = ''
         emailErrorDiv.style.display = ''
         emailInput.style.border = ''
+    }
+})
+
+passwordInput.addEventListener('focusout', () => {
+    if (passwordInput.value === '') {
+        passwordInput.style.boxShadow = ''
+        passErrorDiv.style.display = 'flex'
+        passwordInput.style.border = '1px solid red'
+        passError.innerHTML = 'Add meg a jelszavad.'
+
+        passwordInput.addEventListener('focus', () =>{
+            passwordInput.style.boxShadow = '0px 0px 1px 2px red inset'
+        })
+    } else {
+        passwordInput.addEventListener('focus', () => {
+            passwordInput.style.boxShadow = '0px 0px 1px 2px white inset'
+        })
+        passwordInput.style.boxShadow = ''
+        passErrorDiv.style.display = ''
+        passwordInput.style.border = ''
     }
 })
