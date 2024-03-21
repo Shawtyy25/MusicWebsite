@@ -4,6 +4,19 @@ body{
     font-family: sans-serif;
 }
 
+::-webkit-scrollbar{
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--mainC);
+    border-radius: 1rem;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -125,9 +138,22 @@ img {
 .leftSidePlaylistsText{
     display: flex;
     align-items: center;
+    justify-items: center;
     justify-content: space-around;
     width: auto;
     width: 13rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgb(17,17,17);
+}
+
+#LSPT{
+    margin-top: 7px;
+}
+
+.leftSidePlaylistsText h4{
+    margin: 0;
 }
 
 .leftSidePlaylistsText h4 a{
@@ -150,30 +176,21 @@ img {
     bottom: 0;
 }
 
-/* Fő része az oldalnak, a középső rész */
-main{
-    display: flex;
-}
-
-.middle{
-    width: 100vw;
-    background-color: var(--midBg);
-}
 
 /* A felső navigációs bár, a keresőfelülettel együtt */
 .navPart{
     background-color: var(--midBg);
-    padding: 1rem 0;
+    padding: 1rem 0 0 1rem;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 nav{
     background-color: var(--gray);
-    width: 98%;
     padding: 1rem .5rem;
     border-radius: 1rem;
-    margin: auto;
+    margin: 0 1rem;
 }
 
 nav ul{
@@ -182,10 +199,12 @@ nav ul{
     align-items: center;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 nav ul li{
     list-style-type: none;
+    letter-spacing: 2px;
 }
 
 nav ul li a{
@@ -205,11 +224,12 @@ nav ul .navUlLeft{
     justify-content: center;
     align-items: center;
     gap: 5rem;
+    flex-wrap: wrap;
 }
 
-nav ul .navUlMiddle{
+/* nav ul .navUlMiddle{
    
-}
+} */
 
 nav ul .navUlMiddle li input{
     width: 25vw;
@@ -238,27 +258,378 @@ nav ul .navUlRight{
     justify-content: center;
     align-items: center;
     gap: 5rem;
+    flex-wrap: wrap;
 }
 
-/* Előadók bemutatkozó része */
+
+/* Fő része az oldalnak, a középső rész */
+main{
+    display: flex;
+    overflow: hidden;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--midBg);
+    width: 100%;
+    height: 100vh;
+}
+
+
+.middle{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
 .middleMain{
+    height: auto;
+    width: 100%;
+    background-color: var(--midBg);
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.middleRightSide{
+    position: sticky;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+    width: 40rem;
+    background-color: var(--midBg);
+    margin: auto;
+}
+
+/* Zenehallgató rész */
+
+.musicListening{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    justify-content: center; 
+    align-items: center; 
+    margin: 2rem 1rem 0 0;
+    background-color: var(--gray);
+    border-radius: 1rem;
+    height: 100%;
+    width: auto;
+    padding: 0rem 2rem 0 2rem;
+}
+
+.musicProducer{
+    color: var(--grayish);
+    text-align: center;
+    margin-bottom: 6rem;
+    margin-top: 1rem;
+}
+
+.musicProducer img{
+    border-radius: 50%;
+    height: 100%;
+}
+
+.musicProducerText{
+    margin-top: 2rem;
+}
+
+.musicProducerText h2{
+    color: white;
+}
+
+.musicProducerText h5 a{
+    text-decoration: none;
+    color: var(--grayish);
+}
+
+.musicListeningTop{
     display: flex;
     justify-content: space-between;
-    background-color: red;
-    height: 100vh;
+    align-items: center;
+    text-align: center;
+    color: var(--grayish);
 }
 
-.middleMainLeft{
+.musicListeningTop h3{
+    margin: 0;
+}
+
+#musicTopIcon{
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10rem;
+}
+
+.musicSong{
+    margin: 0rem auto;
+    width: 100%;
+}
+
+.musicTime{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: var(--grayish);
+}
+
+.musicSelect{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem auto;
+    width: 100%;
+    font-size: 2rem;
+    color: white;
+}
+
+#musicShare, #musicSkipBack, #musicMainIcon,#musicSkipForward, #musicLiked{
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#musicShare:hover, #musicSkipBack:hover, #musicSkipForward:hover, #musicLiked:hover{
+    color: var(--mainC);
+    scale: 1.1;
+}
+
+#musicMainIcon{
+    font-size: 4rem;
+    color: white;
+    transition: all .3s;
+}
+
+#musicMainIcon:hover{
+    color: var(--mainC);
+}
+
+.musicLyrics{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--grayish);
+    cursor: pointer;
+}
+
+.musicLyrics h5{
+    margin: 0;
+}
+
+.musicLine{
+    margin: 2rem auto 0;
+}
+
+.musicLine hr{
+    width: 100%;
+    margin: 0 auto;
+    border: 3px solid white;
+    border-radius: 1rem;
+    transition: all .3s;
+}
+
+.musicLine hr:hover{
+    cursor: pointer;
+    border: 3px solid rgb(183, 0, 255);
+    /* Gombóc cuccos kell ide he */
+}
+
+
+
+/* Előadók bemutatkozó része */
+.introduction{
+    background-color: var(--gray);
+    height: 30rem;
+    width: 95%;
+    border-radius: 1rem;
+}
+
+.introductionMain{
+    display: flex;
+    height: 30rem;
+}
+
+.introductionText{
+    padding: 1rem;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 1rem;
+    position: absolute;
+    left: 40%;
+    top: 60%;
+    transform: translate(-75%,-75%);
+    z-index: 100;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 22px 70px 4px;
+    animation-name: slideshowMain;
+    animation-duration: .8s;
+    animation-delay: 0;
+}
+
+.introductionText h6{
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.introductionIMG{
+    position: relative;
+    border-radius: 1rem;
+    width: 100%;
+    height: 30rem;
+    background-image:url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.introductionPerformer{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.introductionPerformer h3{
+    margin: 0;
+}
+
+.introductionPerformer h3 a{
+    text-decoration: none;
+    color: var(--mainC);
+    font-weight: 800;
+    letter-spacing: 2px;
+   
+}
+
+.introductionInteract{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.introductionInteract button{
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    border: 0;
+    transition: all .3s;
+    box-shadow: 0 0 7px #2e2e2e,
+    0 0 1px #2e2e2e,
+    0 0 1px #2e2e2e,
+    0 0 2px rgb(171, 129, 235),
+    0 0 2px rgb(171, 129, 235),
+    0 0 2px rgb(171, 129, 235),
+    0 0 2px rgb(171, 129, 235),
+    0 0 51px rgb(171, 129, 235);
+}
+
+.introductionInteract button:hover{
+    background-color: var(--mainC);
+    scale: 1.05;
+}
+
+#introductionHeart{
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+#introductionHeart:hover{
+    color: var(--mainC);
+}
+
+/* Ajánlott előadók */
+.recommendedTopArtists{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    /* background-color: red; */
+}
+
+.topArtistsText{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.topArtistsText h2, .topArtistsText h1{
+    margin: 0;
+}
+
+.topArtistsText h2 a{
+    text-decoration: none;
+    color: var(--mainC);
+}
+
+.topArtistsSection{
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    height: 100vh;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.topArtists{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: blue; */
+    width: 20rem;
     height: 25rem;
-    width: 20rem;
-    background-color: var(--grayish);
+    margin: 5rem 0 0 0;
 }
 
-.middleMainRight{
+#ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 20rem;
     width: 20rem;
-    height: 100vh;
-    background-color: var(--grayish);
-    position: sticky;
-    right: 0;
-    top: 7.1rem;
+    border-radius: 50%;
+}
+
+#ArtistOneIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#ArtistTwoIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#ArtistThreeIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.ArtistText{
+    z-index: 100;
+    text-align: center;
+}
+
+.ArtistText h3{
+    margin: 1rem 0 0 0;
+}
+
+.ArtistText h3 a{
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes slideshowMain{
+    from{margin-top: -10rem;}
+    to{margin-top: 0rem;}
 }
