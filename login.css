@@ -132,16 +132,23 @@ main {
     transition: all .2s;
     
 }
-
 .email {
     display: flex;
     flex-direction: column;
     gap: 8px;
 
 }
+.errorFromemail{
+    display: none;
+    column-gap: 5px;
+}
+.errorFromemail ion-icon{
+    font-size: 1.3rem;
+    color: rgb(231, 58, 58);
+}
 
 .email p{
-    display: none;
+    font-size: .9rem;
 }
 
 .email label {

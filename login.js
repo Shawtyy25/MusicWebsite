@@ -5,6 +5,8 @@ const loginButton = document.querySelector('.loginButton')
 const emailInput = document.querySelector('#email')
 const error = document.querySelector('.errorMessege')
 const errorP = document.querySelector('.errorMessege p')
+const emailError = document.querySelector('.emailError')
+const emailErrorDiv = document.querySelector('.errorFromemail')
 
 const user_Email = ['gaspardani719@gmail.com', 'abelszolnoki@gmail.com']
 const user_Username = ['gasparboss', 'shawtyy']
@@ -25,14 +27,14 @@ passYes.addEventListener('click', () => {
 })
 
 loginButton.addEventListener('click', () => {
-    
+
     let found = false;
     let i = 0
 
     if (emailInput.value.length !== 0 && passwordInput.value.length !== 0) {
         while (i < user_Username.length) {
             if ((emailInput.value === user_Username[i] || emailInput.value == user_Email[i]) && passwordInput.value === user_Password[i]) {
-                loginUser =  user_Username[i]
+                loginUser = user_Username[i]
                 loginPassword = user_Password[i]
                 found = true
             }
@@ -41,8 +43,8 @@ loginButton.addEventListener('click', () => {
         if (found) {
             error.style.display = 'none'
             window.location.href = 'main.html'
-            
-    
+
+
         } else {
             errorP.innerHTML = 'Helytelen felhasználónév vagy jelszó.'
             error.style.display = 'flex'
@@ -51,4 +53,25 @@ loginButton.addEventListener('click', () => {
         error.style.display = 'none'
     }
 
-});
+})
+
+emailInput.addEventListener('focusout', () => {
+    if (emailInput.value === '') {
+        emailInput.style.boxShadow = ''
+        emailErrorDiv.style.display = 'flex'
+        emailInput.style.border = '1px solid red'
+        emailError.innerHTML = 'Add meg a felhasználóneved vagy e-mail címed.'
+
+        emailInput.addEventListener('focus', () =>{
+            emailInput.style.boxShadow = '0px 0px 1px 2px red inset'
+
+        })
+    } else {
+        emailInput.addEventListener('focus', () =>{
+            emailInput.style.boxShadow = '0px 0px 1px 2px white inset'
+        })
+        emailInput.style.boxShadow = ''
+        emailErrorDiv.style.display = ''
+        emailInput.style.border = ''
+    }
+})
