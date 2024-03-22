@@ -4,8 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jelszó helyreállítása</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./forgotPass.css">
+    <script type="module" src="./forgotPass.js" defer></script>
 </head>
 <body>
+    <header>
+        <ion-icon name="play-circle" class="musicIcon"></ion-icon>
+        <h1>Sound</h1>
+    </header>
+    <main>
+        <div class="forgotPassWindow">
+            <div class="row">
+                <div class="passHeader col-lg-12">
+                    <h1>Jelszó helyreállítása</h1>
+                    <p style="font-size: .8rem;">Add meg az e-mail-címed és a felhasználóneved, és egy kis ablakban látni fogod az elfelejtett jelszót.</p>
+                </div>
+                <div class="content col-lg-12">
+                    <label for="email" class="emailLabel">E-mail-cím</label>
+                    <input type="email" name="email" id="email" placeholder="E-mail-cím">
+                    <label for="usernInput" class="usernameLabel">Felhasználónév</label>
+                    <input type="text" id="usernInput" placeholder="Felhasználónév">
+                </div>
+                <div class="errorDiv col-lg-12">
+                    <ion-icon name="alert-circle" class="errorIcon"></ion-icon>
+                    <p class="error"></p>
+                </div>
+                <div class="button col-lg-12">
+                    <a>Bejelentkezés</a>
+                </div>
+            </div>
+                
+            
+        </div>
+        <div class="passShowDiv">
+            <div class="messege">
+                <p>Az e-mail-címhez és a felhasználónévhez tartozó jelszó: </p>
+                <p class="passmessege" style="text-decoration: underline;"></p>
+            </div>
+        </div>
+    </main>
     
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

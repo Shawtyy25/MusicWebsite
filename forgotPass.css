@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --graydown: rgb(26, 25, 25);
+    --graymiddle: rgb(20, 20, 20);
+    --graytop: rgb(10, 10, 10);
+    --main: rgb(99, 22, 214)
+}
+
+header {
+    font-family: "Madimi One", sans-serif;
+    background-color: var(--graydown);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2.3rem;
+}
+
+.musicIcon {
+    margin-top: -10px;
+    font-size: 2.3rem;
+}
+
+main{
+    background-color: var(--graydown);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    height: 100%;
+    padding: 50px;
+    padding-top: 0;
+}
+.forgotPassWindow{
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    max-width: 350px;
+}
+.row{
+    display: flex;
+    justify-content: center;
+}
+.passHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.emailLabel{
+    font-weight: bold;
+    font-size: small;
+}
+.usernameLabel{
+    font-weight: bold;
+    font-size: small; 
+}
+#email{
+    border: 1px solid gray;
+    padding: 14px;
+    font-size: 1rem;
+    background-color: var(--graydown);
+    color: white;
+    border-radius: 5px;
+    transition: all .1s;
+    outline: none;
+    margin-bottom: 10px;
+}
+#email:hover{
+    border: 1px solid white;
+}
+#email:focus{
+    border: 1px solid white;
+    outline: none;
+    box-shadow: 0px 0px 1px 2px white inset;
+}
+
+#usernInput{
+    border: 1px solid gray;
+    padding: 14px;
+    font-size: 1rem;
+    background-color: var(--graydown);
+    color: white;
+    border-radius: 5px;
+    transition: all .1s;
+    outline: none;
+}
+#usernInput:hover{
+    border: 1px solid white;
+}
+#usernInput:focus{
+    border: 1px solid white;
+    outline: none;
+    box-shadow: 0px 0px 1px 2px white inset;
+}
+
+.errorDiv{
+    display: none;
+    margin-top: 10px;
+}
+.errorIcon{
+    font-size: 1.3rem;
+    color: red;
+    margin-right: 2px;
+}
+.error{
+    color: rgb(224, 22, 22);
+    font-size: small;
+}
+
+.button{
+    margin: 0 auto;
+    background-color: var(--main);
+    text-align: center;
+    padding: 12px 50px;
+    border-radius: 30px;
+    transition: all .2s;
+    margin-top: -10px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.button a {
+    color: white;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: rgba(99, 22, 214, .9);
+}
+.button:active {
+    scale: .98;
+    background-color: rgba(99, 22, 214, .7);
+}
+
+.passShowDiv{
+    background-color: rgba(29, 28, 29, 0.5);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    display: none;
+    margin-bottom: 0;
+}
+.messege{
+    background-color: var(--main);
+    color: white;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: -200px auto 0 auto;
+    padding: 20px;
+    border-radius: 0px 0 50px 50px;
+
+}

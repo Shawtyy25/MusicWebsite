@@ -13,8 +13,7 @@ const passError = document.querySelector('.passError')
 const user_Email = ['gaspardani719@gmail.com', 'abelszolnoki@gmail.com']
 const user_Username = ['gasparboss', 'shawtyy']
 const user_Password = ['adminG123', 'adminS123']
-let loginUser = undefined
-let loginPassword = undefined
+
 
 
 passNo.addEventListener('click', function () {
@@ -37,8 +36,6 @@ loginButton.addEventListener('click', () => {
     if (emailInput.value.length !== 0 && passwordInput.value.length !== 0) {
         while (i < user_Username.length) {
             if ((emailInput.value === user_Username[i] || emailInput.value == user_Email[i]) && passwordInput.value === user_Password[i]) {
-                loginUser = user_Username[i]
-                loginPassword = user_Password[i]
                 found = true
             }
             i += 1
@@ -46,7 +43,6 @@ loginButton.addEventListener('click', () => {
         if (found) {
             error.style.display = 'none'
             window.location.href = 'main.html'
-
 
         } else {
             errorP.innerHTML = 'Helytelen felhasználónév vagy jelszó.'
@@ -98,3 +94,5 @@ passwordInput.addEventListener('focusout', () => {
         passwordInput.style.border = ''
     }
 })
+
+

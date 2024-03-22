@@ -36,6 +36,7 @@ main {
     background-image: linear-gradient(rgb(32, 32, 32), rgb(20, 20, 20), rgb(10, 10, 10));
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     height: 100%;
     padding: 50px;
 }
