@@ -82,6 +82,11 @@ img {
     padding-top: 1rem;
 }
 
+.leftSideTitle a{
+    display: flex;
+    align-items: center;
+}
+
 .leftSideTitleText{
     font-family: "Madimi One", sans-serif;
     text-align: center;
@@ -174,6 +179,7 @@ img {
     position: sticky;
     top: 100vh;
     bottom: 0;
+    margin-bottom: 1rem;
 }
 
 
@@ -227,10 +233,6 @@ nav ul .navUlLeft{
     flex-wrap: wrap;
 }
 
-/* nav ul .navUlMiddle{
-   
-} */
-
 nav ul .navUlMiddle li input{
     width: 25vw;
     border: 1px solid gray;
@@ -265,7 +267,7 @@ nav ul .navUlRight{
 /* Fő része az oldalnak, a középső rész */
 main{
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .content{
@@ -279,7 +281,7 @@ main{
 
 .middle{
     display: flex;
-    height: 100%;
+    height: 89%;
     justify-content: space-between;
 }
 
@@ -292,6 +294,7 @@ main{
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 2rem;
+    /* background-color: red; */
 }
 
 .middleRightSide{
@@ -302,7 +305,9 @@ main{
     height: 100%;
     width: 40rem;
     background-color: var(--midBg);
+    /* background-color: blue; */
     margin: auto;
+    padding: 1rem;
 }
 
 /* Zenehallgató rész */
@@ -311,27 +316,34 @@ main{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center; 
-    align-items: center; 
-    margin: 2rem 1rem 0 0;
+    align-items: center;
     background-color: var(--gray);
     border-radius: 1rem;
     height: 100%;
-    width: auto;
+    width: 100%;
     padding: 0rem 2rem 0 2rem;
 }
 
 .musicProducer{
     color: var(--grayish);
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
     margin-top: 1rem;
 }
 
-.musicProducer img{
+.musicProducerIMG{
+    margin-top: 2rem;
+    background-image:url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border-radius: 50%;
-    height: 100%;
+    height: 15rem;
+    width: 15rem;
+    cursor: pointer;
+    /* JS location --------------------------------------------------------- */
 }
 
 .musicProducerText{
@@ -382,7 +394,7 @@ main{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 1rem auto;
+    margin: 1rem auto 0 auto;
     width: 100%;
     font-size: 2rem;
     color: white;
@@ -421,7 +433,7 @@ main{
 }
 
 .musicLine{
-    margin: 2rem auto 0;
+    margin: 0 auto;
 }
 
 .musicLine hr{
@@ -455,13 +467,13 @@ main{
 
 .introductionText{
     padding: 1rem;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0,0,0,.6);
     border-radius: 1rem;
     position: absolute;
-    left: 40%;
+    left: 50%;
     top: 60%;
     transform: translate(-75%,-75%);
-    z-index: 100;
+    z-index: 100000000000;
     color: white;
     display: flex;
     flex-direction: column;
@@ -523,19 +535,13 @@ main{
     font-weight: 700;
     border: 0;
     transition: all .3s;
-    box-shadow: 0 0 7px #2e2e2e,
-    0 0 1px #2e2e2e,
-    0 0 1px #2e2e2e,
-    0 0 2px rgb(171, 129, 235),
-    0 0 2px rgb(171, 129, 235),
-    0 0 2px rgb(171, 129, 235),
-    0 0 2px rgb(171, 129, 235),
-    0 0 51px rgb(171, 129, 235);
+    filter: drop-shadow(1px 0px 10px var(--mainC))
 }
 
 .introductionInteract button:hover{
     background-color: var(--mainC);
-    scale: 1.05;
+    scale: 1.01;
+    color: white;
 }
 
 #introductionHeart{
@@ -555,7 +561,6 @@ main{
     flex-direction: column;
     width: 95%;
     height: auto;
-    /* background-color: red; */
 }
 
 .topArtistsText{
@@ -579,7 +584,6 @@ main{
     display: flex;
     flex-direction: row;
     gap: 5rem;
-    height: 100vh;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -587,11 +591,23 @@ main{
 .topArtists{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     /* background-color: blue; */
     width: 20rem;
     height: 25rem;
-    margin: 5rem 0 0 0;
+    margin: 1rem 0 0 0;
+    transition: all .2s;
+    border-radius: 1rem;
+}
+
+.topArtists:hover{
+    background-color: rgba(82, 82, 82, 0.2);
+    scale: 1.02;
+}
+
+.topArtRad{
+    border-radius: 50%;
 }
 
 #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
@@ -616,7 +632,6 @@ main{
 }
 
 .ArtistText{
-    z-index: 100;
     text-align: center;
 }
 
@@ -624,12 +639,289 @@ main{
     margin: 1rem 0 0 0;
 }
 
-.ArtistText h3 a{
+.ArtistText h3 a, .AlbumText h3 a, .AlbumText h6 a{
     color: white;
     text-decoration: none;
+}
+
+.recommendedTopAlbums{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+}
+
+.topAlbumsSection{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-color: black; */
+}
+
+.topAlbums{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: blue; */
+    width: 14rem;
+    height: 17rem;
+    margin: 1rem 0 0 0;
+    transition: all .2s;
+    border-radius: 1rem;
+}
+
+.topAlbums:hover{
+    background-color: rgba(82, 82, 82, 0.2);
+    scale: 1.02;
+}
+
+.AlbumText{
+    /* background-color: red; */
+    width: 12rem;
+    text-align: start;
+}
+
+.AlbumText h6 a{
+    color: rgb(155, 155, 155);
+}
+
+.AlbumText h6 a:hover{
+    text-decoration: underline;
+}
+
+.AlbumText h3, .AlbumText h6{
+    margin: 0;
+}
+
+#AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 12rem;
+    width: 12rem;
+}
+
+#AlbumOneIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#AlbumTwoIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#AlbumThreeIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.musicBottom{
+    display: none;
+    background-color: blue;
 }
 
 @keyframes slideshowMain{
     from{margin-top: -10rem;}
     to{margin-top: 0rem;}
+}
+
+
+@media screen and (max-width:1870px){
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 15rem;
+        width: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:1765px){
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 15rem;
+        width: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 0rem;
+    }
+}
+
+@media screen and (max-width:1690px){
+
+    .topArtists{
+        width: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 4rem;
+    }
+}
+
+@media screen and (max-width:1556px){
+    .topArtistsSection{
+        gap: 3rem;
+    }
+}
+
+@media screen and (max-width:1520px){
+    .topArtistsSection{
+        gap: 2rem;
+    }
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 13rem;
+        width: 13rem;
+    }
+}
+
+@media screen and (max-width:1170px){
+    nav ul .navUlLeft{
+        gap: 2rem;
+    }
+
+    nav ul .navUlRight{
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:1275px){
+    .middle{
+        height: 87vh;
+    }
+    
+    .leftSide, .leftSideFlex, .leftSideTitle, .leftSideMain, .leftSideLogout{
+        width: 5rem;
+    }
+
+    .leftSideTitleText{
+        display: none;
+    }
+
+    .leftMainIcon{
+        color: var(--mainC);
+    }
+
+    .leftSideFlex{
+        padding: .5rem 0rem .5rem 1.3rem;   
+        margin: 0;
+        width: 4rem;
+    }
+
+    .leftMainIcons{
+        font-size: 1.35rem;
+    }
+
+    .leftSidePlaylists{
+        overflow-x: hidden;
+    }
+
+    .leftSide h5, h4{
+        display: none;
+    }
+
+    .leftSideLogout .leftSideFlex{
+        margin: 0 auto;
+    }
+
+    .leftSideLogout .leftSideFlex .leftMainIcons{
+        margin-left: .2rem;
+    }
+    
+    .bi-heart{
+        margin-top: .3rem;
+    }
+
+    .bi-people{
+        margin-top: .1rem;
+    }
+
+    .leftIconFix{
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+
+    .topArtists{
+        width: 10rem;
+        height: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 4rem;
+    }
+
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .middleRightSide{
+        display: none;
+    }
+
+    .musicListening{
+        position: absolute;
+        top: 10rem;
+        left: 20rem;
+    }
+}
+
+@media screen and (max-width:890px){
+    .middle{
+        height: 80%;
+    }
+
+    .middleMain{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:875px){
+    nav ul{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navUlMiddle{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navUlMiddle .navUlMiddleInput{
+        width: 40rem;
+    }
+
+    nav ul .navUlLeft{
+        gap: 4rem;
+    }
+
+    nav ul .navUlRight{
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    nav ul .navUlRight li a .icons{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width:650px){
+    .middle{
+        height: 77.7%;
+    }
+}
+
+@media screen and (max-width:610px){
+    .introduction{
+        display: none;
+    }
+}
+
+@media screen and (max-width:410px){
+    .middle{
+        height: 74%;
+    }
 }

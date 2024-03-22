@@ -16,7 +16,7 @@
     <main>
         <div class="leftSide">
             <div class="leftSideTitle">
-                <ion-icon name="play-circle" class="leftMainIcon"></ion-icon>
+                <a href=""><ion-icon name="play-circle" class="leftMainIcon"></ion-icon></a>
                 <h1 class="leftSideTitleText">Sound</h1>
             </div>
 
@@ -38,19 +38,19 @@
                     <h5>Artists</h5>
                 </div>
                 <div class="leftSideFlex">
-                    <ion-icon class="leftMainIcons" name="disc-outline"></ion-icon>
+                    <ion-icon class="leftMainIcons leftIconFix" name="disc-outline"></ion-icon>
                     <h5>Albums</h5>
                 </div>
                 <div class="leftSideFlex">
-                    <ion-icon class="leftMainIcons" name="musical-note-outline"></ion-icon>
+                    <ion-icon class="leftMainIcons leftIconFix" name="musical-note-outline"></ion-icon>
                     <h5>Genres</h5>
                 </div>
                 <div class="leftSideFlex">
-                    <ion-icon class="leftMainIcons" name="time-outline"></ion-icon>
+                    <ion-icon class="leftMainIcons leftIconFix" name="time-outline"></ion-icon>
                     <h5>History</h5>
                 </div>
                 <div class="leftSideFlex">
-                    <ion-icon class="leftMainIcons" name="settings-outline"></ion-icon>
+                    <ion-icon class="leftMainIcons leftIconFix" name="settings-outline"></ion-icon>
                     <h5>Settings</h5>
                 </div>
             </div>
@@ -110,8 +110,6 @@
                 </div>
             </div>
 
-
-
             <div class="leftSideLogout">
                 <div class="line">
                     <hr>
@@ -122,6 +120,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="content">
             <div class="navPart">
@@ -134,7 +133,7 @@
                             <li><a href="#">Radio</a></li>
                         </div>
                         <div class="navUlMiddle">
-                            <li><input type="text" name="" id=""></li>
+                            <li><input type="text" name="" id="" class="navUlMiddleInput"></li>
                         </div>
                         <div class="navUlRight">
                             <li><a href="#"><ion-icon class="icons" name="person-circle-outline"></ion-icon></a></li>
@@ -147,25 +146,6 @@
 
             <div class="middle">
                 <div class="middleMain">
-                    <!-- <div class="introduction">
-                        <div class="introductionText">
-                            <h6>New Release</h6>
-                            <h1>WHO I AM</h1>
-                            <div class="introductionPerformer">
-                                <h3><a href="#">Alan Walker</a></h3>
-                                <ion-icon name="ellipse"></ion-icon>
-                                <h3>12.4M Plays</h3>
-
-                            </div>
-                            <div class="introductionInteract">
-                                <button type="button">Play now</button>
-                                <ion-icon name="heart-circle-outline"></ion-icon>
-                            </div>
-                        </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Ryan_Gosling_at_SSIFF_2018_%282%29_%28cropped%29.jpg/1200px-Ryan_Gosling_at_SSIFF_2018_%282%29_%28cropped%29.jpg"
-                            alt="">
-                    </div> -->
-
                     <div class="introduction">
                         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
                             <div class="carousel-inner" style="height: 100%;">
@@ -251,35 +231,98 @@
                         </div>
                         <div class="topArtistsSection">
                             <div class="topArtists">
-                                <div id="ArtistOneIMG">
+                                <a class="topArtRad" href="#">
+                                    <div id="ArtistOneIMG">
 
-                                </div>
+                                    </div>
+                                </a>
                                 <div class="ArtistText">
                                     <h3><a href="#">Prateek Kuhad</a></h3>
                                 </div>
                             </div>
                       
                             <div class="topArtists">
-                                <div id="ArtistTwoIMG">
+                                <a class="topArtRad" href="#">
+                                    <div id="ArtistTwoIMG">
 
-                                </div>
+                                    </div>
+                                </a>
                                 <div class="ArtistText">
                                     <h3><a href="#">Prateek Kuhad</a></h3>
                                 </div>
                             </div>
-                        
-
                        
                             <div class="topArtists">
-                                <div id="ArtistThreeIMG">
-
-                                </div>
+                                <a class="topArtRad" href="#">
+                                    <div id="ArtistThreeIMG">
+                                    
+                                    </div>
+                                </a>
                                 <div class="ArtistText">
                                     <h3><a href="#">Prateek Kuhad</a></h3>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+
+
+                    <div class="recommendedTopAlbums">
+                        <div class="topArtistsText">
+                            <h1>Top Albums</h1>
+                            <h2><a href="#">See All</a></h2>
+                        </div>
+                        <div class="topAlbumsSection">
+                            <div class="topAlbums">
+                                <a href="#" class="topAlbumA">
+                                    <div id="AlbumOneIMG">
+
+                                    </div>
+                                </a>
+                                <div class="AlbumText">
+                                    <h3><a href="#">Cicamica</a></h3>
+                                    <h6><a href="#">Prateek Kuhad</a></h6>
+                                </div>
+                            </div>
+
+                            <div class="topAlbums">
+                                <a href="#" class="topAlbumA">
+                                    <div id="AlbumOneIMG">
+
+                                    </div>
+                                </a>
+                                <div class="AlbumText">
+                                    <h3><a href="#">Cicamica</a></h3>
+                                    <h6><a href="#">Prateek Kuhad</a></h6>
+                                </div>
+                            </div>
+
+                            <div class="topAlbums">
+                                <a href="#" class="topAlbumA">
+                                    <div id="AlbumOneIMG">
+
+                                    </div>
+                                </a>
+                                <div class="AlbumText">
+                                    <h3><a href="#">Cicamica</a></h3>
+                                    <h6><a href="#">Prateek Kuhad</a></h6>
+                                </div>
+                            </div>
+
+                            <div class="topAlbums">
+                                <a href="#" class="topAlbumA">
+                                    <div id="AlbumOneIMG">
+
+                                    </div>
+                                </a>
+                                <div class="AlbumText">
+                                    <h3><a href="#">Cicamica</a></h3>
+                                    <h6><a href="#">Prateek Kuhad</a></h6>
+                                </div>
+                            </div>      
+                        </div>
+                    </div>
+                    
 
                 </div>
                 <div class="middleRightSide">
@@ -289,7 +332,11 @@
                             <ion-icon id="musicTopIcon" name="ellipsis-horizontal-outline"></ion-icon>
                         </div>
                         <div class="musicProducer">
-                            <img src="https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all" alt="">
+                           
+                                <div class="musicProducerIMG">
+                                
+                                </div>
+                       
                             <div class="musicProducerText">
                                 <h2>Night Changes</h2>
                                 <h5><a href="#">One Direction</a></h5>
@@ -318,6 +365,30 @@
                     </div>
                 </div>
             </div>
+
+            <div class="musicBottom">
+                <div class="musicSong">
+                    <div class="musicLine">
+                        <hr>
+                    </div>
+                    <div class="musicTime">
+                        <h5>2:06</h5>
+                        <h5>3:52</h5>
+                    </div>
+                </div>
+                <div class="musicSelect">
+                    <ion-icon id="musicShare" name="share-social-outline"></ion-icon>
+                    <ion-icon id="musicSkipBack" name="play-skip-back"></ion-icon>
+                    <ion-icon id="musicMainIcon" name="caret-forward-circle"></ion-icon>
+                    <ion-icon id="musicSkipForward" name="play-skip-forward"></ion-icon>
+                    <ion-icon id="musicLiked" name="heart-outline"></ion-icon>
+                </div>
+                <div class="musicLyrics">
+                    <ion-icon name="chevron-up-outline"></ion-icon>
+                    <h5>Lyrics</h5>
+                </div>
+            </div>
+
         </div>
     </main>
 
