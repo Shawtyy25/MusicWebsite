@@ -920,10 +920,6 @@ main{
         display: none;
     }
 
-    --mainColor: rgb(0,255,0)
-    --white: #fff
-    --black: #000
-
 }
 
 @media screen and (max-width:410px){
