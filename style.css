@@ -29,6 +29,7 @@ img {
 }
 
 :root {
+
     --mainC: rgb(99, 22, 214);
     --grayish: rgb(196, 196, 196);
     --gray: rgb(20, 20, 20);
@@ -918,6 +919,11 @@ main{
     .introduction{
         display: none;
     }
+
+    --mainColor: rgb(0,255,0)
+    --white: #fff
+    --black: #000
+
 }
 
 @media screen and (max-width:410px){
