@@ -29,8 +29,6 @@ passYes.addEventListener('click', () => {
     passwordInput.type = 'password'                
 })
 
-
-
 loginButton.addEventListener('click', () => {
 
     let found = false;
