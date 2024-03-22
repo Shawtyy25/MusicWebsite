@@ -16,6 +16,7 @@ const user_Password = ['adminG123', 'adminS123']
 let loginUser = undefined
 let loginPassword = undefined
 
+
 passNo.addEventListener('click', function () {
     passNo.style.display = 'none'
     passYes.style.display = 'block'
@@ -25,8 +26,10 @@ passNo.addEventListener('click', function () {
 passYes.addEventListener('click', () => {
     passYes.style.display = 'none'
     passNo.style.display = 'block'
-    passwordInput.type = 'password'
+    passwordInput.type = 'password'                
 })
+
+
 
 loginButton.addEventListener('click', () => {
 

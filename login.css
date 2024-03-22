@@ -22,7 +22,8 @@ header {
     display: flex;
     align-items: center;
 }
-header h1{
+
+header h1 {
     font-size: 2.3rem;
 }
 
@@ -130,24 +131,27 @@ main {
 #email,
 .password input {
     transition: all .2s;
-    
+
 }
+
 .email {
     display: flex;
     flex-direction: column;
     gap: 8px;
 
 }
-.errorFromemail{
+
+.errorFromemail {
     display: none;
     column-gap: 5px;
 }
-.errorIcon{
+
+.errorIcon {
     font-size: 1.3rem;
     color: rgb(245, 0, 0);
 }
 
-.email p{
+.email p {
     font-size: .9rem;
 }
 
@@ -216,12 +220,13 @@ main {
     position: relative;
 }
 
-.errorFrompass{
+.errorFrompass {
     column-gap: 5px;
     display: none;
     margin: 10px auto -50px auto;
 }
-.errorFrompass p{
+
+.errorFrompass p {
     font-size: .9rem;
     color: rgb(207, 35, 35);
 }
@@ -239,6 +244,7 @@ main {
     color: gray;
     transition: all .1s;
 }
+
 .passYes {
     display: none;
 }
@@ -285,44 +291,50 @@ main {
 .loginButton:hover {
     scale: 1.03;
 }
-.loginButton:active{
+
+.loginButton:active {
     scale: .98;
 }
 
 /* Elfelejtetted a jelszavad gomb */
 
-.forgotPass{
+.forgotPass {
     margin: -20px auto;
     text-align: center;
 }
-.forgotPass a{
+
+.forgotPass a {
     color: white;
 }
-.forgotPass a:hover{
+
+.forgotPass a:hover {
     color: var(--main);
 }
 
 /* regisztráció */
-.registration{
-    display: flex;   
+.registration {
+    display: flex;
     text-align: center;
     margin: 0 auto;
     column-gap: 20px;
 }
-.registration p{
+
+.registration p {
     text-align: center;
     color: rgb(117, 113, 113);
 }
-.registration a{
+
+.registration a {
     text-align: center;
     color: white;
 }
-.registration a:hover{
+
+.registration a:hover {
     color: var(--main);
 }
 
 /* error üzenet beállításai */
-.errorMessege{
+.errorMessege {
     margin: 0;
     display: flex;
     column-gap: 20px;
@@ -333,85 +345,100 @@ main {
     padding: 10px 20px;
     display: none;
 }
-.errorMessege p{
+
+.errorMessege p {
     margin: 0;
 }
-.errorIconUp{
+
+.errorIconUp {
     font-size: 1.5rem;
 }
 
 
-@media (max-width: 767px){
-    .loginButton:hover{
+@media (max-width: 767px) {
+    .loginButton:hover {
         scale: 1;
     }
-    header{
+
+    header {
         background-color: var(--graytop);
     }
-    main{
+
+    main {
         padding: 0;
     }
-    .loginWindow{
+
+    .loginWindow {
         border-radius: 0;
         margin: 0;
         max-width: none;
     }
-    header{
+
+    header {
         margin-bottom: -30px;
     }
-    .registration{
+
+    .registration {
         margin-bottom: 10px;
     }
-    
+
 }
-@media (max-width: 676px){
-    .registration{
+
+@media (max-width: 676px) {
+    .registration {
         flex-direction: column;
     }
 }
 
-@media (max-width: 598px){
-    header{
+@media (max-width: 598px) {
+    header {
         margin-bottom: -20px;
     }
-    .loginWindow{
+
+    .loginWindow {
         padding-left: 20px;
         padding-right: 20px;
     }
 }
-@media (max-width: 534px){
-    .loginWindow h1{
+
+@media (max-width: 534px) {
+    .loginWindow h1 {
         text-align: left;
     }
-    .loginWindow .secondline{
+
+    .loginWindow .secondline {
         margin-bottom: -40px;
     }
-    .registration{
+
+    .registration {
         flex-direction: column;
         align-items: center;
     }
 }
 
-@media (max-width: 513px){
-    header{
+@media (max-width: 513px) {
+    header {
         background-color: var(--graytop);
     }
-    .loginWindow{
+
+    .loginWindow {
         padding-top: 20px;
         padding-left: 20px;
         padding-right: 20px;
     }
-    .loginWindow h1{
+
+    .loginWindow h1 {
         text-align: left;
     }
-    .loginWindow .secondline{
+
+    .loginWindow .secondline {
         margin-bottom: -40px;
     }
 
-    .registration{
+    .registration {
         flex-direction: column;
         align-items: center;
         margin-bottom: 20px;
-        
+
     }
 }
