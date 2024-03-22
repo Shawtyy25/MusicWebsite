@@ -14,7 +14,7 @@
 
 header {
     font-family: "Madimi One", sans-serif;
-    background-color: var(--graydown);
+    background-color: var(--graymiddle);
     color: white;
     padding: 1rem;
     display: flex;
@@ -31,13 +31,14 @@ header h1 {
 }
 
 main{
-    background-color: var(--graydown);
+    background-image: linear-gradient(var(--graydown), var(--graymiddle), var(--graytop));
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     height: 100%;
     padding: 50px;
     padding-top: 0;
+    padding-top: 50px;
 }
 .forgotPassWindow{
     color: white;
@@ -46,26 +47,31 @@ main{
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    max-width: 350px;
+    max-width: 450px;
 }
 .row{
     display: flex;
     justify-content: center;
+    background-image: linear-gradient(var(--graytop), var(--graymiddle), var(--graydown));
+    padding: 80px 50px 150px 50px; 
+    border-radius: 1rem;
 }
 .passHeader{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 10px;
 }
 .content{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 .emailLabel{
     font-weight: bold;
     font-size: small;
 }
+
 .usernameLabel{
     font-weight: bold;
     font-size: small; 
@@ -167,4 +173,21 @@ main{
     padding: 20px;
     border-radius: 0px 0 50px 50px;
 
+}
+
+
+@media (max-width: 552px) {
+    header {
+        background-color: var(--graydown);
+    }
+    .row{
+        background: transparent;
+    }
+    main{
+        padding: 0;
+        margin: 0;
+    }
+    .forgotPassWindow {
+        max-width: 800px;
+    }
 }

@@ -33,7 +33,7 @@ header h1 {
 }
 
 main {
-    background-image: linear-gradient(rgb(32, 32, 32), rgb(20, 20, 20), rgb(10, 10, 10));
+    background-image: linear-gradient(var(--graydown), var(--graymiddle), var(--graytop));
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -43,7 +43,7 @@ main {
 
 .loginWindow {
     font-family: sans-serif;
-    background-image: linear-gradient(rgb(10, 10, 10), rgb(20, 20, 20), rgb(32, 32, 32));
+    background-image: linear-gradient(var(--graytop), var(--graymiddle), var(--graydown));
     color: white;
     margin: 0 auto;
     max-width: 700px;
@@ -52,6 +52,7 @@ main {
     display: flex;
     flex-direction: column;
     row-gap: 3.2rem;
+    max-width: 650px;
 }
 
 .loginWindow h1 {
