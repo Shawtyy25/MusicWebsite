@@ -12,13 +12,17 @@ const user_Email = ['gaspardani719@gmail.com', 'abelszolnoki@gmail.com']
 const user_Username = ['gasparboss', 'shawtyy']
 const user_Password = ['adminG123', 'adminS123']
 
+let count = 0
+
 button.addEventListener('click', () =>{
     let i = 0
     let found = false
+    
     if (emailInput.value.length !== 0 && usernInput.value.length !== 0){
         while (i < user_Email.length) {
             if (emailInput.value === user_Email[i] && usernInput.value === user_Username[i]) {
                 found = true
+                
             }
             i += 1
         }
@@ -32,12 +36,12 @@ button.addEventListener('click', () =>{
                 messege.style.transform = 'translateY(0)'
                 messege.style.marginTop = '0'    
             }, 20);
-            let count = 0
+            
             for (let i of user_Email) {
-                console.log(count)
                 if (i === emailInput.value) {
                     passMessege.innerHTML = user_Password[count]
                 } 
+                
                 count += 1                
             }
             
@@ -81,3 +85,4 @@ button.addEventListener('click', () =>{
     
 })
 
+    

@@ -1,3 +1,4 @@
+
 const passwordInput = document.querySelector('#password')
 const passYes = document.querySelector('.passYes')
 const passNo = document.querySelector('.passNo')
@@ -141,6 +142,7 @@ passwordInput.addEventListener('focusout', () => {
         passwordInput.style.border = ''
     }
 })
+
 
 
 
