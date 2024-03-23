@@ -15,6 +15,8 @@ const user_Username = ['gasparboss', 'shawtyy']
 const user_Password = ['adminG123', 'adminS123']
 
 let pressCount = 0
+let emailInputCount = false
+let passInputCount = false
 
 passNo.addEventListener('click', function () {
     passNo.style.display = 'none'
@@ -25,7 +27,7 @@ passNo.addEventListener('click', function () {
 passYes.addEventListener('click', () => {
     passYes.style.display = 'none'
     passNo.style.display = 'block'
-    passwordInput.type = 'password'                
+    passwordInput.type = 'password'
 })
 
 loginButton.addEventListener('click', () => {
@@ -33,7 +35,6 @@ loginButton.addEventListener('click', () => {
     passwordInput.disabled = false
     let found = false;
     let i = 0
-    
 
     if (emailInput.value.length !== 0 && passwordInput.value.length !== 0) {
         while (i < user_Username.length) {
@@ -48,7 +49,7 @@ loginButton.addEventListener('click', () => {
 
         } else {
             errorP.innerHTML = 'Helytelen felhasználónév vagy jelszó.'
-            error.style.display = 'flex'            
+            error.style.display = 'flex'
             pressCount += 1
             console.log(pressCount)
         }
@@ -61,11 +62,16 @@ loginButton.addEventListener('click', () => {
         passwordInput.disabled = true
         loginButton.style.pointerEvents = 'none'
         loginButton.style.transition = ''
+
         /* Számláló a letiltási időről */
         let time = 10
-        let timer = setInterval( () => {
+        errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz'
+
+        let timer = setInterval(() => {
+            time-
+            console.log(time)
             errorP.innerHTML = time-- + ' másodperc múlva újra próbálkozhatsz'
-            if (time === 0) {
+            if (time < 0) {
                 clearInterval(timer)
                 error.style.display = 'none'
                 emailInput.value = ''
@@ -75,24 +81,38 @@ loginButton.addEventListener('click', () => {
                 loginButton.style.pointerEvents = 'all'
             }
         }, 1000)
+
         console.log('teszt')
-        
+
+    }
+})
+emailInput.addEventListener('blur', () => {
+    if (emailInput.value.length > 0 && !emailInputCount) {
+        emailInputCount = true
+        console.log(emailInputCount)
+    }
+})
+passwordInput.addEventListener('blur', () => {
+    if (passwordInput.value.length > 0 && !passInputCount) {
+        passInputCount = true
+        console.log(passInputCount)
     }
 })
 
+
 emailInput.addEventListener('focusout', () => {
-    if (emailInput.value === '') {
+    if (emailInput.value === '' && emailInputCount) {
         emailInput.style.boxShadow = ''
         emailErrorDiv.style.display = 'flex'
         emailInput.style.border = '1px solid red'
         emailError.innerHTML = 'Add meg a felhasználóneved vagy e-mail címed.'
 
-        emailInput.addEventListener('focus', () =>{
+        emailInput.addEventListener('focus', () => {
             emailInput.style.boxShadow = '0px 0px 1px 2px red inset'
 
         })
     } else {
-        emailInput.addEventListener('focus', () =>{
+        emailInput.addEventListener('focus', () => {
             emailInput.style.boxShadow = '0px 0px 1px 2px white inset'
         })
         emailInput.style.boxShadow = ''
@@ -102,13 +122,13 @@ emailInput.addEventListener('focusout', () => {
 })
 
 passwordInput.addEventListener('focusout', () => {
-    if (passwordInput.value === '') {
+    if (passwordInput.value === '' && passInputCount) {
         passwordInput.style.boxShadow = ''
         passErrorDiv.style.display = 'flex'
         passwordInput.style.border = '1px solid red'
         passError.innerHTML = 'Add meg a jelszavad.'
 
-        passwordInput.addEventListener('focus', () =>{
+        passwordInput.addEventListener('focus', () => {
             passwordInput.style.boxShadow = '0px 0px 1px 2px red inset'
         })
     } else {
