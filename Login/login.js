@@ -42,7 +42,7 @@ loginButton.addEventListener('click', () => {
         }
         if (found) {
             error.style.display = 'none'
-            window.location.href = 'main.html'
+            window.location.href = '../Main/main.html'
 
         } else {
             errorP.innerHTML = 'Helytelen felhasználónév vagy jelszó.'

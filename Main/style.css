@@ -1,0 +1,929 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+
+body{
+    font-family: sans-serif;
+}
+
+::-webkit-scrollbar{
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--mainC);
+    border-radius: 1rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:root {
+
+    --mainC: rgb(99, 22, 214);
+    --grayish: rgb(196, 196, 196);
+    --gray: rgb(20, 20, 20);
+    --midBg: rgb(32, 32, 32);
+}
+
+.line{
+    color: white;
+}
+
+.icons{
+    display:flex;
+    align-items: center;
+    font-size: 2.5rem;
+    color: white;
+    transition:  color .3s;
+}
+
+.icons:hover{
+    color: var(--mainC);
+}
+
+/* Bal oldali rész */
+.leftMainIcon{
+    font-size: 2.5rem;
+    color: white;
+}
+
+.leftMainIcons{
+    font-size: 1.3rem;
+}
+
+.leftSide {
+    position: sticky;
+    top: 0;
+    bottom:0;
+    width: 15rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgb(10, 10, 10), rgb(20, 20, 20));
+    background-repeat: no-repeat;
+    row-gap: .5rem;
+}
+
+.leftSideTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 1rem;
+}
+
+.leftSideTitle a{
+    display: flex;
+    align-items: center;
+}
+
+.leftSideTitleText{
+    font-family: "Madimi One", sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--mainC);
+    text-shadow: 0 0 7px #2e2e2e,
+    0 0 1px #2e2e2e,
+    0 0 1px #2e2e2e,
+    0 0 2px rgb(171, 129, 235),
+    0 0 2px rgb(171, 129, 235),
+    0 0 2px rgb(171, 129, 235),
+    0 0 2px rgb(171, 129, 235),
+    0 0 51px rgb(171, 129, 235);
+    margin: 0;
+}
+
+.leftSideFlex {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 1rem;
+    width: 13rem;
+    padding: .5rem 3rem .5rem 1rem;
+    transition: all .3s;
+    color: var(--grayish);
+}
+
+.leftSideFlex h5 {
+    text-align: center;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.leftSideFlex:hover {
+    background-color: var(--mainC);
+    color: white;
+}
+
+.leftSideMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.leftSidePlaylists{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    overflow-y: scroll;
+}
+
+.leftSidePlaylistsText{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+    width: auto;
+    width: 13rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgb(17,17,17);
+}
+
+#LSPT{
+    margin-top: 7px;
+}
+
+.leftSidePlaylistsText h4{
+    margin: 0;
+}
+
+.leftSidePlaylistsText h4 a{
+    text-decoration: none;
+    color: white;
+    transition: all .3s;
+}
+
+.leftSidePlaylistsText h4 a:hover{
+    color: var(--mainC);
+}
+
+.leftSidePlaylistsText .leftMainIcons{
+    color: var(--mainC);
+}
+
+.leftSideLogout{
+    position: sticky;
+    top: 100vh;
+    bottom: 0;
+    margin-bottom: 1rem;
+}
+
+
+/* A felső navigációs bár, a keresőfelülettel együtt */
+.navPart{
+    background-color: var(--midBg);
+    padding: 1rem 0 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav{
+    background-color: var(--gray);
+    padding: 1rem .5rem;
+    border-radius: 1rem;
+    margin: 0 1rem;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+nav ul li{
+    list-style-type: none;
+    letter-spacing: 2px;
+}
+
+nav ul li a{
+    color: var(--grayish);
+    text-decoration: none;
+    transition: all .3s;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+nav ul li a:hover{
+    color: var(--mainC)
+}
+
+nav ul .navUlLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+nav ul .navUlMiddle li input{
+    width: 25vw;
+    border: 1px solid gray;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: var(--midBg);
+    color: white;
+    border-radius: 12px;
+    transition: border .2s;   
+    outline: none;
+}
+
+nav ul .navUlMiddle li input:hover{
+    border: 1px solid white;
+}
+
+nav ul .navUlMiddle li input:focus{
+    outline: 0;
+    box-shadow: 0px 0px 1px 2px white inset;
+    color: var(--grayish); 
+}
+
+nav ul .navUlRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+
+/* Fő része az oldalnak, a középső rész */
+main{
+    display: flex;
+    /* overflow: hidden; */
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--midBg);
+    width: 100%;
+    height: 100vh;
+}
+
+
+.middle{
+    display: flex;
+    height: 89%;
+    justify-content: space-between;
+}
+
+.middleMain{
+    height: auto;
+    width: 100%;
+    background-color: var(--midBg);
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    /* background-color: red; */
+}
+
+.middleRightSide{
+    position: sticky;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+    width: 40rem;
+    background-color: var(--midBg);
+    /* background-color: blue; */
+    margin: auto;
+    padding: 1rem;
+}
+
+/* Zenehallgató rész */
+
+.musicListening{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 1rem;
+    height: 100%;
+    width: 100%;
+    padding: 0rem 2rem 0 2rem;
+}
+
+.musicProducer{
+    color: var(--grayish);
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.musicProducerIMG{
+    margin-top: 2rem;
+    background-image:url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+    cursor: pointer;
+    /* JS location --------------------------------------------------------- */
+}
+
+.musicProducerText{
+    margin-top: 2rem;
+}
+
+.musicProducerText h2{
+    color: white;
+}
+
+.musicProducerText h5 a{
+    text-decoration: none;
+    color: var(--grayish);
+}
+
+.musicListeningTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: var(--grayish);
+}
+
+.musicListeningTop h3{
+    margin: 0;
+}
+
+#musicTopIcon{
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10rem;
+}
+
+.musicSong{
+    margin: 0rem auto;
+    width: 100%;
+}
+
+.musicTime{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: var(--grayish);
+}
+
+.musicSelect{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem auto 0 auto;
+    width: 100%;
+    font-size: 2rem;
+    color: white;
+}
+
+#musicShare, #musicSkipBack, #musicMainIcon,#musicSkipForward, #musicLiked{
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#musicShare:hover, #musicSkipBack:hover, #musicSkipForward:hover, #musicLiked:hover{
+    color: var(--mainC);
+    scale: 1.1;
+}
+
+#musicMainIcon{
+    font-size: 4rem;
+    color: white;
+    transition: all .3s;
+}
+
+#musicMainIcon:hover{
+    color: var(--mainC);
+}
+
+.musicLyrics{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--grayish);
+    cursor: pointer;
+}
+
+.musicLyrics h5{
+    margin: 0;
+}
+
+.musicLine{
+    margin: 0 auto;
+}
+
+.musicLine hr{
+    width: 100%;
+    margin: 0 auto;
+    border: 3px solid white;
+    border-radius: 1rem;
+    transition: all .3s;
+}
+
+.musicLine hr:hover{
+    cursor: pointer;
+    border: 3px solid rgb(183, 0, 255);
+    /* Gombóc cuccos kell ide he */
+}
+
+
+
+/* Előadók bemutatkozó része */
+.introduction{
+    background-color: var(--gray);
+    height: 30rem;
+    width: 95%;
+    border-radius: 1rem;
+}
+
+.introductionMain{
+    display: flex;
+    height: 30rem;
+}
+
+.introductionText{
+    padding: 1rem;
+    background-color: rgba(0,0,0,.6);
+    border-radius: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-75%,-75%);
+    z-index: 100000000000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 22px 70px 4px;
+    animation-name: slideshowMain;
+    animation-duration: .8s;
+    animation-delay: 0;
+}
+
+.introductionText h6{
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.introductionIMG{
+    position: relative;
+    border-radius: 1rem;
+    width: 100%;
+    height: 30rem;
+    background-image:url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.introductionPerformer{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.introductionPerformer h3{
+    margin: 0;
+}
+
+.introductionPerformer h3 a{
+    text-decoration: none;
+    color: var(--mainC);
+    font-weight: 800;
+    letter-spacing: 2px;
+   
+}
+
+.introductionInteract{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.introductionInteract button{
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    border: 0;
+    transition: all .3s;
+    filter: drop-shadow(1px 0px 10px var(--mainC))
+}
+
+.introductionInteract button:hover{
+    background-color: var(--mainC);
+    scale: 1.01;
+    color: white;
+}
+
+#introductionHeart{
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+#introductionHeart:hover{
+    color: var(--mainC);
+}
+
+/* Ajánlott előadók */
+.recommendedTopArtists{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+}
+
+.topArtistsText{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.topArtistsText h2, .topArtistsText h1{
+    margin: 0;
+}
+
+.topArtistsText h2 a{
+    text-decoration: none;
+    color: var(--mainC);
+}
+
+.topArtistsSection{
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.topArtists{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: blue; */
+    width: 20rem;
+    height: 25rem;
+    margin: 1rem 0 0 0;
+    transition: all .2s;
+    border-radius: 1rem;
+}
+
+.topArtists:hover{
+    background-color: rgba(82, 82, 82, 0.2);
+    scale: 1.02;
+}
+
+.topArtRad{
+    border-radius: 50%;
+}
+
+#ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+}
+
+#ArtistOneIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#ArtistTwoIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#ArtistThreeIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.ArtistText{
+    text-align: center;
+}
+
+.ArtistText h3{
+    margin: 1rem 0 0 0;
+}
+
+.ArtistText h3 a, .AlbumText h3 a, .AlbumText h6 a{
+    color: white;
+    text-decoration: none;
+}
+
+.recommendedTopAlbums{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+}
+
+.topAlbumsSection{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-color: black; */
+}
+
+.topAlbums{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: blue; */
+    width: 14rem;
+    height: 17rem;
+    margin: 1rem 0 0 0;
+    transition: all .2s;
+    border-radius: 1rem;
+}
+
+.topAlbums:hover{
+    background-color: rgba(82, 82, 82, 0.2);
+    scale: 1.02;
+}
+
+.AlbumText{
+    /* background-color: red; */
+    width: 12rem;
+    text-align: start;
+}
+
+.AlbumText h6 a{
+    color: rgb(155, 155, 155);
+}
+
+.AlbumText h6 a:hover{
+    text-decoration: underline;
+}
+
+.AlbumText h3, .AlbumText h6{
+    margin: 0;
+}
+
+#AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 12rem;
+    width: 12rem;
+}
+
+#AlbumOneIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#AlbumTwoIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#AlbumThreeIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.musicBottom{
+    display: none;
+    background-color: blue;
+}
+
+@keyframes slideshowMain{
+    from{margin-top: -10rem;}
+    to{margin-top: 0rem;}
+}
+
+
+@media screen and (max-width:1870px){
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 15rem;
+        width: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:1765px){
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 15rem;
+        width: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 0rem;
+    }
+}
+
+@media screen and (max-width:1690px){
+
+    .topArtists{
+        width: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 4rem;
+    }
+}
+
+@media screen and (max-width:1556px){
+    .topArtistsSection{
+        gap: 3rem;
+    }
+}
+
+@media screen and (max-width:1520px){
+    .topArtistsSection{
+        gap: 2rem;
+    }
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 13rem;
+        width: 13rem;
+    }
+}
+
+@media screen and (max-width:1170px){
+    nav ul .navUlLeft{
+        gap: 2rem;
+    }
+
+    nav ul .navUlRight{
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:1275px){
+    .middle{
+        height: 87vh;
+    }
+    
+    .leftSide, .leftSideFlex, .leftSideTitle, .leftSideMain, .leftSideLogout{
+        width: 5rem;
+    }
+
+    .leftSideTitleText{
+        display: none;
+    }
+
+    .leftMainIcon{
+        color: var(--mainC);
+    }
+
+    .leftSideFlex{
+        padding: .5rem 0rem .5rem 1.3rem;   
+        margin: 0;
+        width: 4rem;
+    }
+
+    .leftMainIcons{
+        font-size: 1.35rem;
+    }
+
+    .leftSidePlaylists{
+        overflow-x: hidden;
+    }
+
+    .leftSide h5, h4{
+        display: none;
+    }
+
+    .leftSideLogout .leftSideFlex{
+        margin: 0 auto;
+    }
+
+    .leftSideLogout .leftSideFlex .leftMainIcons{
+        margin-left: .2rem;
+    }
+    
+    .bi-heart{
+        margin-top: .3rem;
+    }
+
+    .bi-people{
+        margin-top: .1rem;
+    }
+
+    .leftIconFix{
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+
+    .topArtists{
+        width: 10rem;
+        height: 15rem;
+    }
+
+    .topArtistsSection{
+        gap: 4rem;
+    }
+
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG{
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .middleRightSide{
+        display: none;
+    }
+
+    .musicListening{
+        position: absolute;
+        top: 10rem;
+        left: 20rem;
+    }
+}
+
+@media screen and (max-width:890px){
+    .middle{
+        height: 80%;
+    }
+
+    .middleMain{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:875px){
+    nav ul{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navUlMiddle{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navUlMiddle .navUlMiddleInput{
+        width: 40rem;
+    }
+
+    nav ul .navUlLeft{
+        gap: 4rem;
+    }
+
+    nav ul .navUlRight{
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    nav ul .navUlRight li a .icons{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width:650px){
+    .middle{
+        height: 77.7%;
+    }
+}
+
+@media screen and (max-width:610px){
+    .introduction{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:410px){
+    .middle{
+        height: 74%;
+    }
+}
