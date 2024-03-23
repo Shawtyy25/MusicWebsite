@@ -1,11 +1,12 @@
+
 const button = document.querySelector('.button')
 const emailInput = document.querySelector('#email')
 const usernInput = document.querySelector('#usernInput')
 const errorDiv = document.querySelector('.errorDiv')
 const error = document.querySelector('.error')
 const passShowDiv = document.querySelector('.passShowDiv')
-let passMessege = document.querySelector('.passmessege')
-const messege = document.querySelector('.messege')
+const passMessage = document.querySelector('.passmessage')
+const message = document.querySelector('.message')
 const main = document.querySelector('main')
 
 const user_Email = ['gaspardani719@gmail.com', 'abelszolnoki@gmail.com']
@@ -28,20 +29,21 @@ button.addEventListener('click', () =>{
         }
         if (found) {
             passShowDiv.style.display = 'block'
-            messege.style.marginTop = '-200px'
-            messege.style.transitionDelay = '2s'
-            messege.style.transition = 'transform 1s, margin-top .1s'
+            message.style.marginTop = '-200px'
+            message.style.transitionDelay = '2s'
+            message.style.transition = 'transform 1s, margin-top .1s'
             main.style.paddingBottom = '0'
+
             setTimeout(() => {
-                messege.style.transform = 'translateY(0)'
-                messege.style.marginTop = '0'    
+                message.style.transform = 'translateY(0)'
+                message.style.marginTop = '0'    
             }, 20);
             
             for (let i of user_Email) {
                 if (i === emailInput.value) {
-                    passMessege.innerHTML = user_Password[count]
+                    passMessage.innerHTML = user_Password[count]
+                    
                 } 
-                
                 count += 1                
             }
             
@@ -85,4 +87,11 @@ button.addEventListener('click', () =>{
     
 })
 
+if (passMessage) {
+    passMessage.addEventListener('click', () => {
+        localStorage.setItem('getPassword' , passMessage.innerHTML)
+        window.location.href = '/Login/Login.html'
+    })
     
+}
+

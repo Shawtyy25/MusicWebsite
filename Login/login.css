@@ -14,6 +14,26 @@
     padding: 0;
 }
 
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+
+    }
+}
+
+/* Keyframes ablakok */
+.loginWindow {
+    animation: transitionIn 0.9s;
+}
+
+
 header {
     font-family: "Madimi One", sans-serif;
     background-color: rgb(22, 22, 22);

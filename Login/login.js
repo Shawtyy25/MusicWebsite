@@ -1,4 +1,3 @@
-
 const passwordInput = document.querySelector('#password')
 const passYes = document.querySelector('.passYes')
 const passNo = document.querySelector('.passNo')
@@ -18,6 +17,16 @@ const user_Password = ['adminG123', 'adminS123']
 let pressCount = 0
 let emailInputCount = false
 let passInputCount = false
+let passwordFromForg = localStorage.getItem('getPassword')
+
+
+
+if (localStorage.length > 0) {
+    passwordInput.value = passwordFromForg
+} else {
+    passwordInput.value = ''
+}
+localStorage.removeItem('getPassword')
 
 passNo.addEventListener('click', function () {
     passNo.style.display = 'none'
@@ -66,13 +75,13 @@ loginButton.addEventListener('click', () => {
 
         /* Számláló a letiltási időről */
         let time = 60
-        errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz'
+        errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz.'
 
         let timer = setInterval(() => {
             time--
             console.log(time)
-            errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz'
-            
+            errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz.'
+
             if (time < 1) {
                 clearInterval(timer)
                 error.style.display = 'none'
@@ -142,7 +151,3 @@ passwordInput.addEventListener('focusout', () => {
         passwordInput.style.border = ''
     }
 })
-
-
-
-

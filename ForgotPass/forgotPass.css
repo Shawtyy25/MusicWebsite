@@ -12,6 +12,22 @@
     --main: rgb(99, 22, 214)
 }
 
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+     
+    to {
+        opacity: 1;
+        transform:rotateX(0deg);
+    }
+}
+
+.forgotPassWindow {
+    animation: transitionIn .9s;
+}
+
 header {
     font-family: "Madimi One", sans-serif;
     background-color: var(--graymiddle);
@@ -162,7 +178,7 @@ main{
     display: none;
     margin-bottom: 0;
 }
-.messege{
+.message{
     background-color: var(--main);
     color: white;
     max-width: 400px;
