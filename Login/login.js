@@ -20,7 +20,7 @@ let passInputCount = false
 let passwordFromForg = localStorage.getItem('getPassword')
 
 
-
+/* Elfelejtettem a jelszavam vizsgálata, ha szerepel a localStorage-ban akkor beírja a password input mezőbe! */
 if (localStorage.length > 0) {
     passwordInput.value = passwordFromForg
 } else {
