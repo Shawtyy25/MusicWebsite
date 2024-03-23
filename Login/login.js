@@ -14,7 +14,7 @@ const user_Email = ['gaspardani719@gmail.com', 'abelszolnoki@gmail.com']
 const user_Username = ['gasparboss', 'shawtyy']
 const user_Password = ['adminG123', 'adminS123']
 
-
+let pressCount = 0
 
 passNo.addEventListener('click', function () {
     passNo.style.display = 'none'
@@ -29,9 +29,11 @@ passYes.addEventListener('click', () => {
 })
 
 loginButton.addEventListener('click', () => {
-
+    emailInput.disabled = false
+    passwordInput.disabled = false
     let found = false;
     let i = 0
+    
 
     if (emailInput.value.length !== 0 && passwordInput.value.length !== 0) {
         while (i < user_Username.length) {
@@ -46,12 +48,36 @@ loginButton.addEventListener('click', () => {
 
         } else {
             errorP.innerHTML = 'Helytelen felhasználónév vagy jelszó.'
-            error.style.display = 'flex'
+            error.style.display = 'flex'            
+            pressCount += 1
+            console.log(pressCount)
         }
     } else {
         error.style.display = 'none'
     }
-
+    if (pressCount === 5) {
+        pressCount = 0
+        emailInput.disabled = true
+        passwordInput.disabled = true
+        loginButton.style.pointerEvents = 'none'
+        loginButton.style.transition = ''
+        /* Számláló a letiltási időről */
+        let time = 10
+        let timer = setInterval( () => {
+            errorP.innerHTML = time-- + ' másodperc múlva újra próbálkozhatsz'
+            if (time === 0) {
+                clearInterval(timer)
+                error.style.display = 'none'
+                emailInput.value = ''
+                passwordInput.value = ''
+                emailInput.disabled = false
+                passwordInput.disabled = false
+                loginButton.style.pointerEvents = 'all'
+            }
+        }, 1000)
+        console.log('teszt')
+        
+    }
 })
 
 emailInput.addEventListener('focusout', () => {
@@ -94,5 +120,6 @@ passwordInput.addEventListener('focusout', () => {
         passwordInput.style.border = ''
     }
 })
+
 
 
