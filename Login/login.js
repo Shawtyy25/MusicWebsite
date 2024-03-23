@@ -64,14 +64,15 @@ loginButton.addEventListener('click', () => {
         loginButton.style.transition = ''
 
         /* Számláló a letiltási időről */
-        let time = 10
+        let time = 60
         errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz'
 
         let timer = setInterval(() => {
-            time-
+            time--
             console.log(time)
-            errorP.innerHTML = time-- + ' másodperc múlva újra próbálkozhatsz'
-            if (time < 0) {
+            errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz'
+            
+            if (time < 1) {
                 clearInterval(timer)
                 error.style.display = 'none'
                 emailInput.value = ''
