@@ -265,7 +265,7 @@ nav ul .navUlRight{
 /* Fő része az oldalnak, a középső rész */
 main{
     display: flex;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .content{
@@ -591,7 +591,7 @@ main{
     /* background-color: black; */
     display: flex;
     flex-direction: row;
-    gap: 5rem;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -607,7 +607,7 @@ main{
     flex-direction: column;
     /* background-color: blue; */
     width: 20rem;
-    height: 25rem;
+    height: 20rem;
     margin: 1rem 0 0 0;
     transition: all .2s;
     border-radius: 1rem;
@@ -627,8 +627,8 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 20rem;
-    width: 20rem;
+    height: 15rem;
+    width: 15rem;
     border-radius: 50%;
 }
 
@@ -821,6 +821,18 @@ main{
     background-color: blue;
 }
 
+.navIconDNone{
+    display: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--grayish);
+    transition: color .3s;
+}
+
+.navIconDNone:hover{
+    color: var(--mainC);
+}
+
 @keyframes slideshowMain{
     from{margin-top: -10rem;}
     to{margin-top: 0rem;}
@@ -945,6 +957,7 @@ main{
 
 @media screen and (max-width:1445px){
     .topArtistsSection{
+        justify-content: space-between;
         gap: 2rem;
     }
 
@@ -959,7 +972,7 @@ main{
     }
 
     .topAlbumsSection, .recentlyPlayedSection{
-        gap: 4rem;
+        justify-content: space-evenly;
     }
 
     .topAlbums, .recentlyPlayed{
@@ -1006,16 +1019,6 @@ main{
     #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
         height: 16rem;
         width: 16rem;
-    }
-}
-
-@media screen and (max-width:1170px){
-    nav ul .navUlLeft{
-        gap: 2rem;
-    }
-
-    nav ul .navUlRight{
-        gap: 2rem;
     }
 }
 
@@ -1113,13 +1116,23 @@ main{
 
     .musicBottom{
         position: fixed;
-        padding: 1rem 2rem;
+        padding: 1rem 4rem 1rem 0;
         justify-content: center;
         display: flex;
         align-items: center;
         background-color: var(--gray);
         bottom: 0;
         width: 100%;
+        gap: 0rem;
+    }
+
+    .musicBottom .musicSong{
+        margin: 0;
+        width: 40%;
+    }
+
+    .musicBottom .musicSelect{
+        width: 40%;
     }
 
     .musicSelect{
@@ -1131,7 +1144,69 @@ main{
     }
 }
 
-@media screen and (max-width:890px){
+@media screen and (max-width:1203px){
+    .topArtistsSection{
+        justify-content: space-evenly;
+    }
+
+    .topArtists{
+        width: 21rem;
+        height: 21rem;
+    }
+
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+        height: 16rem;
+        width: 16rem;
+    }
+}
+
+@media screen and (max-width:1170px){
+    nav ul .navUlLeft{
+        gap: 2rem;
+    }
+
+    nav ul .navUlRight{
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:1131px){
+    .topAlbumsSection, .recentlyPlayedSection{
+        justify-content: space-evenly;
+    }
+
+    .topAlbums, .recentlyPlayed{
+        width: 20rem;
+        height: 23rem;
+    }
+
+    #recentlyPlayedOneIMG, #recentlyPlayedTwoIMG, #recentlyPlayedThreeIMG, #recentlyPlayedFourIMG, #AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG, #AlbumFourIMG{
+        width: 18rem;
+        height: 18rem;
+    }
+    
+    .recentlyPlayedText, .AlbumText{
+        width: 18rem;
+    }
+}
+
+@media screen and (max-width: 913px){
+    .topArtistsSection{
+        justify-content: space-between;
+    }
+
+    .topArtists{
+        width: 20rem;
+        height: 20rem;
+    }
+
+     #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+        height: 15rem;
+        width: 15rem;
+    }
+}
+
+/* @media screen and (max-width:890px){
     .middle{
         height: 80%;
     }
@@ -1139,7 +1214,7 @@ main{
     .middleMain{
         height: 100%;
     }
-}
+} */
 
 @media screen and (max-width:875px){
     nav ul{
@@ -1154,7 +1229,7 @@ main{
     }
 
     .navUlMiddle .navUlMiddleInput{
-        width: 10rem;
+        width: 35rem;
     }
 
     nav ul .navUlLeft{
@@ -1180,11 +1255,96 @@ main{
         flex-direction: column;
     }
 
+    .musicBottom .musicSong{
+        margin: 0;
+        width: 90%;
+    }
+
+    .musicBottom .musicSelect{
+        width: 90%;
+    }
+
+    .musicBottom .musicLyrics{
+        flex-direction: row;
+        margin: 2rem 0 0 0;
+    }
 }
 
-@media screen and (max-width:650px){
-    .middle{
-        height: 77.7%;
+@media screen and (max-width:797px){
+    .topArtistsSection{
+        justify-content: space-evenly;
+    }
+
+    .topArtists{
+        width: 15rem;
+        height: 15rem;
+    }
+
+     #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .topAlbumsSection, .recentlyPlayedSection{
+        justify-content: space-evenly;
+    }
+
+    .topAlbums, .recentlyPlayed{
+        width: 15rem;
+        height: 18rem;
+    }
+
+    #recentlyPlayedOneIMG, #recentlyPlayedTwoIMG, #recentlyPlayedThreeIMG, #recentlyPlayedFourIMG, #AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG, #AlbumFourIMG{
+        width: 13rem;
+        height: 13rem;
+    }
+    
+    .recentlyPlayedText, .AlbumText{
+        width: 13rem;
+    }
+}
+
+@media screen and (max-width:747px){
+    .navUlMiddle .navUlMiddleInput{
+        width: 30rem;
+    }
+}
+
+@media screen and (max-width: 659px){
+    .navUlMiddle .navUlMiddleInput{
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width:631px){
+    .topArtistsSection{
+        justify-content: space-between;
+    }
+
+    .topArtists{
+        width: 14rem;
+        height: 14rem;
+    }
+
+     #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+        height: 9rem;
+        width: 9rem;
+    }
+}
+
+@media screen and (max-width:628px){
+    .topAlbums, .recentlyPlayed{
+        width: 12rem;
+        height: 15rem;
+    }
+
+    #recentlyPlayedOneIMG, #recentlyPlayedTwoIMG, #recentlyPlayedThreeIMG, #recentlyPlayedFourIMG, #AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG, #AlbumFourIMG{
+        width: 10rem;
+        height: 10rem;
+    }
+    
+    .recentlyPlayedText, .AlbumText{
+        width: 10rem;
     }
 }
 
@@ -1193,10 +1353,161 @@ main{
         display: none;
     }
 
+    .recommendedTopArtists{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width:602px){
+    .navIconDNone{
+        display: block;
+    }
+
+    .navUlLeft li a{
+        display: none;
+    }
+}
+
+@media screen and (max-width:600px){
+    .middle{
+        height: 55vh;
+    }
+}
+
+@media screen and (max-width:594px){
+    .topArtistsSection{
+        justify-content: center;
+    }
+
+    .topArtists{
+        width: 12rem;
+        height: 12rem;
+    }
+
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+        height: 8rem;
+        width: 8rem;
+    }
+}
+
+@media screen and (max-width:559px){
+    .navUlMiddle .navUlMiddleInput{
+        width: 20rem;
+    }
+}
+
+@media screen and (max-width:527px){
+    .FlexWrap{
+        display: none;
+    }
+    
+    #topArtistsBreak{
+        display: none;
+    }
+}
+
+@media screen and (max-width:526px){
+    .topAlbums, .recentlyPlayed{
+        width: 10rem;
+        height: 13rem;
+    }
+
+    #recentlyPlayedOneIMG, #recentlyPlayedTwoIMG, #recentlyPlayedThreeIMG, #recentlyPlayedFourIMG, #AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG, #AlbumFourIMG{
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    .recentlyPlayedText, .AlbumText{
+        width: 8rem;
+    }
+
+    .topArtists{
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .ArtistText h3 a{
+        font-size: smaller;
+    }
+
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+        height: 6rem;
+        width: 6rem;
+    }
+}
+
+@media screen and (max-width:496px){
+    nav ul .navUlLeft{
+        gap: 2rem;
+    }
+
+    .navUlMiddle .navUlMiddleInput{
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width:494px){
+    .middle{
+        height: 55vh;
+    }
+}
+
+@media screen and (max-width:460px){
+    .topAlbumsSection, .recentlyPlayedSection{
+        justify-content: center;
+    }
+
+    .topAlbums, .recentlyPlayed{
+        width: 8rem;
+        height: 11rem;
+    }
+
+    #recentlyPlayedOneIMG, #recentlyPlayedTwoIMG, #recentlyPlayedThreeIMG, #recentlyPlayedFourIMG, #AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG, #AlbumFourIMG{
+        width: 6rem;
+        height: 6rem;
+    }
+    
+    .recentlyPlayedText, .AlbumText{
+        width: 6rem;
+    }
+
+    .topArtistsSection{
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .topArtists{
+        width: 8rem;
+        height: 11rem;
+    }
+
+    .ArtistText h3 a{
+        font-size: smaller;
+    }
+
+    #ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+        height: 6rem;
+        width: 6rem;
+    }
 }
 
 @media screen and (max-width:410px){
     .middle{
-        height: 74%;
+        height: 55vh;
     }
+}
+
+
+
+
+
+
+@media screen and (max-height:985px){
+    .middle{
+        height: 85vh;
+    }
+}
+
+@media screen and (max-height:841px){
+    
 }
