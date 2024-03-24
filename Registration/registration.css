@@ -98,10 +98,19 @@ header {
 .emailForm {
     display: flex;
     column-gap: 10px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.email label{
+    color: #06d8d8;
+    font-weight:bolder;
+}
+.arrow{
+    font-size: 1.5rem;
 }
 
 .email-Input {
-    background-color: rgb(35, 35, 68);
+    background-color: #0c162d;
     outline: none;
     padding: 5px 10px;
     border: none;
@@ -111,6 +120,11 @@ header {
     font-family: 'Courier New', Courier, monospace;
     border-radius: 5px;
     transition: all .2s;
+}
+.correct {
+    display: none;
+    font-size: 1.5rem;
+    color: rgb(0, 255, 0);
 }
 
 .email-Input:hover{
@@ -130,10 +144,63 @@ header {
     cursor: pointer;
     transition: all .2s;
     color: rgb(211, 210, 210);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 .resume:hover{
     border: 1px solid #06d8d8;
 }
+
+/* Username paraméterei */
+.username {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    animation: transitionIn .4s;
+}
+.usernameForm{
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.username label{
+    color: #06d8d8;
+    font-weight:bolder;
+}
+.arrow-U, .correct-U{
+    font-size: 1.5rem;
+}
+.correct-U {
+    display: none;
+    font-size: 1.5rem;
+    color: rgb(0, 255, 0);
+}
+.username-Input {
+    background-color: #0c162d;
+    outline: none;
+    padding: 5px 10px;
+    border: none;
+    width: 100%;
+    border: 1px solid rgb(10, 156, 156);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    transition: all .2s;
+    font-size: .9rem;
+}
+.username-Input:hover{
+    border: 1px solid rgb(7, 226, 226);
+}
+
+
+.username-Input:focus{
+    border: 1px solid rgb(7, 226, 226);
+}
+
+
+
 .errorMessege {
     display: none;
     margin: 0 auto;

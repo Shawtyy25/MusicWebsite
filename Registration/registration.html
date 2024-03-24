@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no initial-scale=1, maximum-scale=1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no initial-scale=1,
+        maximum-scale=1>
     <title>Regisztráció</title>
     <link rel="stylesheet" href="/Registration/registration.css">
     <script src="./registration.js" defer></script>
@@ -14,7 +15,7 @@
         <div class="header-left">
             <ion-icon name="play-circle-outline"></ion-icon>
         </div>
-        
+
         <div class="header-right">
             <p>Van már fiókod?</p>
             <a style="cursor: pointer;" href="/Login/Login.html">Bejelentkezés</a>
@@ -30,11 +31,21 @@
                 <div class="email" style="display: none;">
                     <label for="email">Email-cím</label>
                     <div class="emailForm">
+                        <ion-icon name="chevron-forward-outline" class="arrow"></ion-icon>
+                        <ion-icon name="checkmark-sharp" class="correct"></ion-icon>
                         <input type="email" name="email" id="email" class="email-Input">
                         <a class="resume">Folytatás</a>
                     </div>
                 </div>
-                
+                <div class="username" style="display: none;">
+                    <label for="username">Felhasználónév</label>
+                    <div class="usernameForm">
+                        <ion-icon name="chevron-forward-outline" class="arrow-U"></ion-icon>
+                        <ion-icon name="checkmark-sharp" class="correct-U"></ion-icon>
+                        <input type="email" name="email" id="username" class="username-Input" autofocus>
+                        <a class="resume">Folytatás</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="errorMessege">
