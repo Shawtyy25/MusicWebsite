@@ -39,10 +39,10 @@ setTimeout(() => {
     }, 1500);
 
     email_input.addEventListener('focusout', () => {
-        if (email_input.value.length > 0 && emailPattern.test(email_input.value) && !user_Email.includes(email_input.value)) {    
-                resume.style.border = '1px solid green'
-                resume.style.color = 'green'
-                error_Messege.style.display = ''
+        if (email_input.value.length > 0 && emailPattern.test(email_input.value) && !user_Email.includes(email_input.value)) {
+            resume.style.border = '1px solid green'
+            resume.style.color = 'green'
+            error_Messege.style.display = ''
 
             resume.addEventListener('mouseover', () => {
                 resume.style.border = '1px solid rgb(6, 255, 6)'

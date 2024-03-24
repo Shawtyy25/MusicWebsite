@@ -1,7 +1,9 @@
 body,
 html {
     overflow: hidden;
+    zoom: unset;
     height: 100%;
+
 }
 :root {
     --main: rgb(99, 22, 214)
