@@ -132,3 +132,11 @@ header {
 .resume:hover{
     border: 1px solid #06d8d8;
 }
+.errorMessege {
+    display: none;
+    margin: 0 auto;
+    font-size: .9rem;
+    color: rgb(168, 168, 168);
+    max-width: 500px;
+    margin-top: 25px;
+}

@@ -20,6 +20,16 @@ let passInputCount = false
 let passwordFromForg = localStorage.getItem('getPassword')
 
 
+/* Storageba tétel */
+let user_EmailJSON = JSON.stringify(user_Email)
+localStorage.setItem('user_Email', user_EmailJSON)
+let user_PasswordJSON = JSON.stringify(user_Password)
+localStorage.setItem('user_Password', user_PasswordJSON)
+let user_UsernameJSON = JSON.stringify(user_Username)
+localStorage.setItem('user_Username', user_UsernameJSON)
+
+/* -------------------------------- */
+
 /* Elfelejtettem a jelszavam vizsgálata, ha szerepel a localStorage-ban akkor beírja a password input mezőbe! */
 if (localStorage.length > 0) {
     passwordInput.value = passwordFromForg
