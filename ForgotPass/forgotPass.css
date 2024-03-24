@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -207,3 +212,23 @@ main{
         max-width: 800px;
     }
 }
+
+@media (max-width: 518px) {
+    .forgotPassWindow{
+        width: 100vw;
+        width: 100%;
+    }
+}
+@media (max-width: 482px) {
+    .forgotPassWindow{
+        width: 100vw;
+        width: 100%;
+    }
+}
+@media (max-width: 420px) {
+    .forgotPassWindow{
+        width: 100vw;
+        width: 100%;
+    }
+}
+
