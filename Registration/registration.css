@@ -5,6 +5,7 @@ html {
     height: 100%;
 
 }
+
 :root {
     --main: rgb(99, 22, 214)
 }
@@ -45,7 +46,8 @@ header {
 .header-right p {
     color: gray;
 }
-.header-right a{
+
+.header-right a {
     color: white;
     text-decoration: none;
 }
@@ -57,7 +59,7 @@ header {
 .registration-window {
 
     color: rgb(168, 168, 168);
-    display: flex; 
+    display: flex;
     justify-content: center;
     background-color: #0c162d;
     border: 1px solid rgba(73, 72, 72, 0.308);
@@ -89,6 +91,7 @@ header {
         opacity: 0;
         transform: translateY(-2vh);
     }
+
     to {
         opacity: 1;
         transform: translateY(0vh);
@@ -101,11 +104,13 @@ header {
     align-items: center;
     margin-bottom: 2rem;
 }
-.email label{
+
+.email label {
     color: #06d8d8;
-    font-weight:bolder;
+    font-weight: bolder;
 }
-.arrow{
+
+.arrow {
     font-size: 1.5rem;
 }
 
@@ -120,23 +125,30 @@ header {
     font-family: 'Courier New', Courier, monospace;
     border-radius: 5px;
     transition: all .2s;
+    font-size: 1rem;
 }
+
 .correct {
     display: none;
     font-size: 1.5rem;
     color: rgb(0, 255, 0);
 }
+.mistake {
+    font-size: 1.5rem;
+    color: red;
+    display: none;
+}
 
-.email-Input:hover{
+.email-Input:hover {
     border: 1px solid rgb(7, 226, 226);
 }
 
 
-.email-Input:focus{
+.email-Input:focus {
     border: 1px solid rgb(7, 226, 226);
 }
 
-.resume{
+.resume {
     padding: 8px 12px;
     border-radius: 5px;
     border: 1px solid rgb(170, 168, 168);
@@ -145,11 +157,14 @@ header {
     transition: all .2s;
     color: rgb(211, 210, 210);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
+
 }
-.resume:hover{
+
+.resume:hover {
     border: 1px solid #06d8d8;
 }
+
+
 
 /* Username paraméterei */
 .username {
@@ -158,25 +173,35 @@ header {
     gap: 5px;
     animation: transitionIn .4s;
 }
-.usernameForm{
+
+.usernameForm {
     display: flex;
     column-gap: 10px;
     align-items: center;
     margin-bottom: 2rem;
 }
 
-.username label{
+.username label {
     color: #06d8d8;
-    font-weight:bolder;
+    font-weight: bolder;
 }
-.arrow-U, .correct-U{
-    font-size: 1.5rem;
+
+.arrow-U, .arrow{
+    font-size: 1.4rem;
 }
+
 .correct-U {
     display: none;
     font-size: 1.5rem;
     color: rgb(0, 255, 0);
 }
+
+.mistake-U {
+    font-size: 1.5rem;
+    color: red;
+    display: none;
+}
+
 .username-Input {
     background-color: #0c162d;
     outline: none;
@@ -188,15 +213,33 @@ header {
     font-family: 'Courier New', Courier, monospace;
     border-radius: 5px;
     transition: all .2s;
-    font-size: .9rem;
+    font-size: 1rem;
 }
-.username-Input:hover{
+
+.username-Input:hover {
     border: 1px solid rgb(7, 226, 226);
 }
 
 
-.username-Input:focus{
+.username-Input:focus {
     border: 1px solid rgb(7, 226, 226);
+}
+
+
+.resume-U {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid rgb(170, 168, 168);
+    font-size: .8rem;
+    cursor: pointer;
+    transition: all .2s;
+    color: rgb(211, 210, 210);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.resume-U:hover {
+    border: 1px solid #06d8d8;
 }
 
 
