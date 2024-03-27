@@ -34,7 +34,7 @@
                         <ion-icon name="chevron-forward-outline" class="arrow"></ion-icon>
                         <ion-icon name="checkmark-sharp" class="correct"></ion-icon>
                         <ion-icon name="close-sharp" class="mistake"></ion-icon>
-                        <input type="email" name="email" id="email" class="email-Input">
+                        <input type="email" name="email" id="email" class="email-Input" autocomplete="off">
                         <a class="resume">Folytatás</a>
                     </div>
                 </div>
@@ -44,10 +44,43 @@
                         <ion-icon name="chevron-forward-outline" class="arrow-U"></ion-icon>
                         <ion-icon name="checkmark-sharp" class="correct-U"></ion-icon>
                         <ion-icon name="close-sharp" class="mistake-U"></ion-icon>
-                        <input type="text" name="username" id="username" class="username-Input" autofocus>
+                        <input type="text" name="username" id="username" class="username-Input" autofocus
+                            autocomplete="off">
                         <a class="resume-U">Folytatás</a>
                     </div>
                 </div>
+                <div class="password">
+                    <label for="password">Jelszó</label>
+                    <div class="passwordForm">
+                        <ion-icon name="chevron-forward-outline" class="arrow-P"></ion-icon>
+                        <ion-icon name="checkmark-sharp" class="correct-P"></ion-icon>
+                        <ion-icon name="close-sharp" class="mistake-P"></ion-icon>
+                        <div class="passwordDiv">
+                            <input type="password" name="password" id="password" class="password-Input"
+                                autocomplete="off">
+                            <ion-icon name="eye-outline" class="passYes"></ion-icon>
+                            <ion-icon name="eye-off-outline" class="passNo"></ion-icon>
+                        </div>
+                        <a class="resume-P">Folytatás</a>
+                    </div>
+
+                </div>
+                <div class="passwordConf">
+                    <label for="passwordConf">Jelszó megerősítése</label>
+                    <div class="passwordConfForm">
+                        <ion-icon name="chevron-forward-outline" class="arrow-PC"></ion-icon>
+                        <ion-icon name="checkmark-sharp" class="correct-PC"></ion-icon>
+                        <ion-icon name="close-sharp" class="mistake-PC"></ion-icon>
+                        <div class="passwordConfDiv">
+                            <input type="password" name="passwordConf" id="passwordConf" class="passwordConf-Input"
+                                autocomplete="off">
+                            <ion-icon name="eye-outline" class="passYes"></ion-icon>
+                            <ion-icon name="eye-off-outline" class="passNo"></ion-icon>
+                        </div>
+                        <a class="resume-P">Folytatás</a>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="errorMessege">

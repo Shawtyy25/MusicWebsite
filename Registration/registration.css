@@ -133,6 +133,7 @@ header {
     font-size: 1.5rem;
     color: rgb(0, 255, 0);
 }
+
 .mistake {
     font-size: 1.5rem;
     color: red;
@@ -186,7 +187,9 @@ header {
     font-weight: bolder;
 }
 
-.arrow-U, .arrow{
+.arrow-U,
+.arrow,
+.arrow-P {
     font-size: 1.4rem;
 }
 
@@ -242,6 +245,166 @@ header {
     border: 1px solid #06d8d8;
 }
 
+
+/* Password paraméterei */
+.password {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    animation: transitionIn .4s;
+}
+
+.passwordForm {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.password label {
+    color: #06d8d8;
+    font-weight: bolder;
+}
+
+.correct-P {
+    display: none;
+    font-size: 1.5rem;
+    color: rgb(0, 255, 0);
+}
+
+.mistake-P {
+    font-size: 1.5rem;
+    color: red;
+    display: none;
+}
+
+.passwordDiv {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.password-Input {
+    background-color: #0c162d;
+    outline: none;
+    padding: 5px 10px;
+    border: none;
+    width: 100%;
+    border: 1px solid rgb(10, 156, 156);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    transition: all .2s;
+    font-size: 1rem;
+    position: relative;
+}
+
+.password-Input:hover {
+    border: 1px solid rgb(7, 226, 226);
+}
+
+
+.password-Input:focus {
+    border: 1px solid rgb(7, 226, 226);
+}
+
+
+.resume-P {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid rgb(170, 168, 168);
+    font-size: .8rem;
+    cursor: pointer;
+    transition: all .2s;
+    color: rgb(211, 210, 210);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.resume-P:hover {
+    border: 1px solid #06d8d8;
+}
+
+
+/* Password ellenőrző */
+
+.passwordConf {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    animation: transitionIn .4s;
+}
+
+.passwordConfForm {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.passwordConf label {
+    color: #06d8d8;
+    font-weight: bolder;
+}
+
+.correct-PC {
+    display: none;
+    font-size: 1.5rem;
+    color: rgb(0, 255, 0);
+}
+
+.mistake-PC {
+    font-size: 1.5rem;
+    color: red;
+    display: none;
+}
+
+.passwordConfDiv {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.passwordConf-Input {
+    background-color: #0c162d;
+    outline: none;
+    padding: 5px 10px;
+    border: none;
+    width: 100%;
+    border: 1px solid rgb(10, 156, 156);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    transition: all .2s;
+    font-size: 1rem;
+    position: relative;
+}
+
+.passwordConf-Input:hover {
+    border: 1px solid rgb(7, 226, 226);
+}
+
+
+.passwordConf-Input:focus {
+    border: 1px solid rgb(7, 226, 226);
+}
+
+
+.passYes {
+    top: 10%;
+    right: 2%;
+    position: absolute;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.passNo {
+    top: 10%;
+    right: 2%;
+    position: absolute;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
 
 
 .errorMessege {
