@@ -13,9 +13,9 @@ function buttonRight(button) {
 }
 
 
-function buttonOnPress(window, appearingWindow, tickIcon, arrowIcon, crossIcon, button, correctInput, nextInputField) {
+function buttonOnPress(windowForm, appearingWindow, appearingWindowForm,  tickIcon, arrowIcon, crossIcon, button, correctInput, nextInputField) {
     button.addEventListener('click', () => {
-        window.style.marginBottom = ''
+        windowForm.style.marginBottom = ''
         appearingWindow.style.display = 'flex'
         tickIcon.style.display = 'block'
         arrowIcon.style.display = 'none'
@@ -25,12 +25,13 @@ function buttonOnPress(window, appearingWindow, tickIcon, arrowIcon, crossIcon, 
         correctInput.style.border = 'none'
         nextInputField.select()
         nextInputField.focus()
+        appearingWindowForm.style.marginBottom = '0'
     })
     
 }
 
 
-function inputFocus(inputField, button, tickIcon, arrowIcon, crossIcon, nextFieldButton) {
+function inputFocus(inputField, button, tickIcon, arrowIcon, crossIcon, previousFieldButton) {
     inputField.addEventListener('focus', () => {
         inputField.style.border = ''
         button.style.opacity = ''
@@ -38,8 +39,8 @@ function inputFocus(inputField, button, tickIcon, arrowIcon, crossIcon, nextFiel
         tickIcon.style.display = 'none'
         arrowIcon.style.display = 'block'
         crossIcon.style.display = 'none'
-        nextFieldButton.style.opacity = '0'
-        nextFieldButton.style.visibility = 'hidden'
+        previousFieldButton.style.opacity = '0'
+        previousFieldButton.style.visibility = 'hidden'
         button.style.pointerEvents = ''
     })
 
@@ -80,6 +81,23 @@ function inputFocusOut_wrong(inputField, tickIcon, arrowIcon, crossIcon, button)
     })
     
 }
+
+function showPassword(eyeClosed, eyeOpened, inputField) {
+    eyeClosed.addEventListener('click', () => {
+        eyeClosed.style.display = 'none'
+        eyeOpened.style.display = 'block'
+        inputField.type = 'text'
+    })
+}
+
+function hidePassword(eyeClosed, eyeOpened, inputField) {
+    eyeOpened.addEventListener('click', () => {
+        eyeOpened.style.display = 'none'
+        eyeClosed.style.display = 'block'
+        inputField.type = 'password'
+    })
+}
+
 // Függvények vége------------> 
 
 const h3 = document.querySelector('.rHeader h3');
@@ -99,6 +117,17 @@ const usernameInput = document.querySelector('.username-Input')
 const resume_U = document.querySelector('.resume-U')
 const mistake = document.querySelector('.mistake')
 const mistake_U = document.querySelector('.mistake-U')
+const error_Messege_Username = document.querySelector('.errorMessegeUsername')
+const usernameForm = document.querySelector('.usernameForm')
+const password = document.querySelector('.password')
+const passwordForm = document.querySelector('.passwordForm')
+const correct_P = document.querySelector('.correct-P')
+const arrow_P = document.querySelector('.arrow-P')
+const mistake_P = document.querySelector('.mistake-P')
+const resume_P = document.querySelector('.resume-P')
+const passwordInput = document.querySelector('.password-Input')
+const passwordYes = document.querySelector('.passYes')
+const passwordNo = document.querySelector('.passNo')
 
 h3.style.display = 'block'
 let welcome = 'Üdvözöllek'
@@ -107,6 +136,7 @@ let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 let usernameValueRight = false
 let usernameOpen = false
 let buttonPressed = Boolean(false)
+let unButtonPressed = Boolean(false)
 
 
 let passwordJSON = localStorage.getItem('user_Password')
@@ -185,10 +215,12 @@ email_input.addEventListener('focusout', () => {
             error_Messege.style.display = ''
             buttonRight(resume);
 
-                buttonOnPress(emailForm, username, correct, arrow, mistake, resume, email_input, usernameInput)
+                buttonOnPress(emailForm, username, usernameForm,  correct, arrow, mistake, resume, email_input, usernameInput)
                 buttonPressed = Boolean(true)
 
                 if (buttonPressed) {
+                    
+                    // Email-cím vizsgálata
                     inputFocus(email_input, resume, correct, arrow, mistake, resume_U)
                     inputFocusOut(email_input, correct, arrow, mistake, resume)
                     
@@ -198,8 +230,6 @@ email_input.addEventListener('focusout', () => {
                         }
                     })
                     
-
-
                     inputFocus(usernameInput, resume_U, correct_U, arrow_U, mistake_U, resume)
                     inputFocusOut(usernameInput, correct_U, arrow_U, mistake_U, resume_U)
 
@@ -207,12 +237,40 @@ email_input.addEventListener('focusout', () => {
                     usernameInput.addEventListener('focusout', () => {
                         if (usernameInput.value.length > 0 && !user_Username.includes(usernameInput.value)) {
                             buttonRight(resume_U)
+                            error_Messege_Username.style.display = ''
+                            buttonOnPress(usernameForm, password, passwordForm, correct_U, arrow_U, mistake_U, resume_U, usernameInput, passwordInput)
+                            unButtonPressed = Boolean(true)
+
+                            // Jelszó ellenőrzése
+                            if (unButtonPressed) {
+                                inputFocus(passwordInput, resume_P, correct_P, arrow_P, mistake_P, resume_U)
+                                inputFocusOut(passwordInput, correct_P, arrow_P, mistake_P, resume_P)
+
+                                // JELSZÓ LÁTHATÓSÁGA
+                                showPassword(passwordNo, passwordYes, passwordInput)
+                                hidePassword(passwordNo, passwordYes, passwordInput)
+
+                                passwordInput.addEventListener('focusout', () => {
+                                    if (passwordInput.value.length === 0) {
+                                        inputFocusOut_wrong(passwordInput, correct_P, arrow_P, mistake_P, resume_P) 
+                                    }
+                                    // folytatni!!!!
+                                } )
+                                
+                            }
+
+
                         } 
                         if (usernameInput.value.length < 1 || user_Username.includes(usernameInput.value)) {
                             inputFocusOut_wrong(usernameInput, correct_U, arrow_U, mistake_U, resume_U)
-
+                            error_Messege_Username.style.display = ''
+                        } 
+                        if (user_Username.includes(usernameInput.value)) {
+                            error_Messege_Username.style.display = 'flex'    
                         }
                     })
+
+                            
                 }
 
             // TÉRJ VISSZA!!!!
@@ -237,88 +295,6 @@ email_input.addEventListener('focusout', () => {
 })
 
 
-// ROSSZ!!!!!!!! csak példának van
-/* email_input.addEventListener('focusout', () => {
     
 
-        resume.addEventListener('mouseover', () => {
-            resume.style.border = '1px solid rgb(6, 255, 6)'
-            resume.style.color = 'rgb(6, 255, 6)'
-        })
-
-        resume.addEventListener('mouseout', () => {
-            resume.style.border = '1px solid rgb(40, 200, 6)'
-            resume.style.color = 'rgb(40, 200, 6)'
-        })
-
-        resume.addEventListener('click', () => {
-            emailForm.style.marginBottom = ''
-            username.style.display = 'flex'
-            correct.style.display = 'block'
-            arrow.style.display = 'none'
-            resume.style.opacity = '0'
-            email_input.style.border = 'none'
-            usernameInput.style.border = ''
-            usernameInput.focus()
-            usernameInput.select()
-
-            email_input.addEventListener('focus', () => {
-                resume.style.opacity = ''
-                email_input.style.border = ''
-                arrow.style.display = ''
-                correct.style.display = 'none'
-            })
-
-            email_input.addEventListener('focusout', () => {
-                resume.style.opacity = '0'
-                email_input.style.border = 'none'
-                arrow.style.display = 'none'
-                correct.style.display = 'block'
-
-                if (email_input.value.length > 0 && emailPattern.test(email_input.value) && !user_Email.includes(email_input.value)) {
-                    correct.style.display = 'block'
-                    mistake.style.display = ''
-                    arrow.style.display = 'none'
-                    email_input.addEventListener('focus', () => {
-                        arrow.style.display = ''
-                        correct.style.display = 'none'
-                    })
-                } else {
-                    correct.style.display = ''
-                    mistake.style.display = 'block'
-                    arrow.style.display = 'none'
-                    email_input.addEventListener('focus', () => {
-                        arrow.style.display = ''
-                        mistake.style.display = ''
-                    })
-                }
-            })
-        })
-
-    } else {
-        resume.style.border = ''
-        emailValueRight = false
-        resume.addEventListener('mouseover', () => {
-            resume.style.border = ''
-            resume.style.color = ''
-        })
-        resume.addEventListener('mouseout', () => {
-            resume.style.border = ''
-            resume.style.color = ''
-        })
-        resume.style.color = ''
-        if (!emailPattern.test(email_input.value) && email_input.value.length > 0 || user_Email.includes(email_input.value)) {
-            error_Messege.style.display = 'flex'
-        } else {
-            error_Messege.style.display = ''
-
-        }
-    } 
-
-    // username Beállításai --------------------
-
-
-    // Jelszó beállítása ------------
-
-})*/
-
+    
