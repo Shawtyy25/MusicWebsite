@@ -7,7 +7,9 @@ html {
 }
 
 :root {
-    --main: rgb(99, 22, 214)
+    --main: rgb(99, 22, 214);
+    --buttonRight: rgb(40, 200, 6);
+    --buttonDefault: rgb(10, 156, 156)
 }
 
 * {

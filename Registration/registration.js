@@ -1,3 +1,64 @@
+// függvények
+function buttonRight(button) {
+    button.style.border = '1px solid var(--buttonRight)'
+    button.style.color = 'var(--buttonRight)'
+    button.addEventListener('mouseover', () => {
+        button.style.border = '1px solid rgb(6, 255, 6)'
+        button.style.color = 'rgb(6, 255, 6)'
+    })
+    button.addEventListener('mouseout', () => {
+        button.style.border = '1px solid rgb(40, 200, 6)'
+        button.style.color = 'rgb(40, 200, 6)'
+    })
+}
+
+function buttonOnPress(window, appearingWindow, tickIcon, arrowIcon, crossIcon, button, correctInput, nextInputField) {
+    button.addEventListener('click', () => {
+        window.style.marginBottom = ''
+        appearingWindow.style.display = 'flex'
+        tickIcon.style.display = 'block'
+        arrowIcon.style.display = 'none'
+        crossIcon.style.display = ''
+        button.style.opacity = '0'
+        button.style.visibility = 'hidden'
+        correctInput.style.border = 'none'
+        nextInputField.select()
+        nextInputField.focus()
+    })
+    
+}
+
+
+function inputFocus(inputField, button, tickIcon, arrowIcon, crossIcon, nextFieldButton) {
+    inputField.addEventListener('focus', () => {
+        inputField.style.border = ''
+        button.style.opacity = ''
+        button.style.visibility = ''
+        tickIcon.style.display = 'none'
+        arrowIcon.style.display = 'block'
+        crossIcon.style.display = 'none'
+        nextFieldButton.style.opacity = '0'
+        nextFieldButton.style.visibility = 'hidden'
+
+    })
+
+}
+
+
+function inputFocusOut(inputField, tickIcon, arrowIcon, crossIcon, button) {
+    inputField.addEventListener('focusout', () => {
+        inputField.style.border = 'none'
+        tickIcon.style.display = 'block'
+        arrowIcon.style.display = 'none'
+        crossIcon.style.display = 'none'
+        button.style.opacity = ''
+
+    })
+
+}
+
+// Függvények vége------------> 
+
 const h3 = document.querySelector('.rHeader h3');
 const rHeader = document.querySelector('.rHeader')
 const email = document.querySelector('.email')
@@ -20,9 +81,9 @@ h3.style.display = 'block'
 let welcome = 'Üdvözöllek'
 let test = ' a soundon!'
 let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-let emailValueRight = false
 let usernameValueRight = false
-
+let usernameOpen = false
+let buttonPressed = Boolean(false)
 
 
 let passwordJSON = localStorage.getItem('user_Password')
@@ -81,13 +142,65 @@ setTimeout(() => {
     }, 2100);
 }, 500);
 
+// Email mező vizsgálata
+
 email_input.addEventListener('focusout', () => {
-    if (email_input.value.length > 0 && emailPattern.test(email_input.value) && !user_Email.includes(email_input.value)) {
-        resume.style.border = '1px solid rgb(40, 200, 6)'
-        resume.style.color = 'rgb(40, 200, 6)'
-        emailValueRight = true
+    if (email_input.value.length === 0) {
         error_Messege.style.display = ''
-        resume.disabled = false
+        resume.style.color = ''
+        resume.style.border = ''
+        resume.addEventListener('mouseover', () => {
+            resume.style.border = ''
+            resume.style.color = ''
+        })
+        resume.addEventListener('mouseout', () => {
+            resume.style.border = ''
+            resume.style.color = ''
+        })
+    } else {
+        if (emailPattern.test(email_input.value) && !user_Email.includes(email_input.value)) {
+            error_Messege.style.display = ''
+
+            buttonRight(resume);
+                buttonOnPress(emailForm, username, correct, arrow, mistake, resume, email_input, usernameInput)
+                buttonPressed = Boolean(true)
+
+                if (buttonPressed) {
+                    inputFocus(email_input, resume, correct, arrow, mistake, resume_U)
+                    inputFocusOut(email_input, correct, arrow, mistake, resume)
+
+                }
+
+
+
+            // TÉRJ VISSZA!!!!
+
+
+
+
+        } else if (!emailPattern.test(email_input.value) || user_Email.includes(email_input.value)) {
+            error_Messege.style.display = 'flex'
+            resume.style.border = ''
+            resume.style.color = ''
+
+            resume.addEventListener('mouseover', () => {
+                resume.style.border = ''
+                resume.style.color = ''
+
+            })
+            resume.addEventListener('mouseout', () => {
+                resume.style.border = ''
+                resume.style.color = ''
+
+            })
+        }
+    }
+});
+
+
+// ROSSZ!!!!!!!! csak példának van
+/* email_input.addEventListener('focusout', () => {
+    
 
         resume.addEventListener('mouseover', () => {
             resume.style.border = '1px solid rgb(6, 255, 6)'
@@ -145,7 +258,6 @@ email_input.addEventListener('focusout', () => {
 
     } else {
         resume.style.border = ''
-        resume.disabled = true
         emailValueRight = false
         resume.addEventListener('mouseover', () => {
             resume.style.border = ''
@@ -162,56 +274,12 @@ email_input.addEventListener('focusout', () => {
             error_Messege.style.display = ''
 
         }
-    }
+    } 
 
     // username Beállításai --------------------
 
-    usernameInput.addEventListener('focus', () => {
-        arrow_U.style.display = ''
-        correct_U.style.display = ''
-        mistake_U.style.display = ''
-        resume_U.style.opacity = ''
-        usernameInput.style.border = ''
-        resume_U.style.display = ''
-    })
-    usernameInput.addEventListener('focusout', () => {
-        if (usernameInput.value.length > 0 && !user_Username.includes(usernameInput.value)) {
-            correct_U.style.display = 'block'
-            arrow_U.style.display = 'none'
-            resume_U.style.opacity = '0'
-            mistake_U.style.display = ''
-            usernameInput.style.border = 'none'
-            usernameValueRight = true
-            resume.disabled = false
-
-            resume_U.style.border = '1px solid rgb(40, 200, 6)'
-            resume_U.style.color = 'rgb(40, 200, 6)'
-
-            resume_U.addEventListener('mouseover', () => {
-                resume_U.style.border = '1px solid rgb(6, 255, 6)'
-                resume_U.style.color = 'rgb(6, 255, 6)'
-            })
-
-            resume_U.addEventListener('mouseout', () => {
-                resume_U.style.border = '1px solid rgb(40, 200, 6)'
-                resume_U.style.color = 'rgb(40, 200, 6)'
-            })
-
-        } else {
-            correct_U.style.display = ''
-            arrow_U.style.display = 'none'
-            resume_U.style.opacity = '0'
-            mistake_U.style.display = 'block'
-            resume_U.disabled = true
-            usernameValueRight = false
-            
-            resume_U.style.border = ''
-            resume_U.style.color = ''
-            usernameInput.style.border = 'none'
-        }
-    })
 
     // Jelszó beállítása ------------
 
-})
+})*/
 
