@@ -9,7 +9,10 @@ html {
 :root {
     --main: rgb(99, 22, 214);
     --buttonRight: rgb(40, 200, 6);
-    --buttonDefault: rgb(10, 156, 156)
+    --buttonDefault: rgb(10, 156, 156);
+    --passwordWrong: rgb(196, 7, 7);
+    --passwordMid: rgb(233, 168, 84);
+    --passwordCorrect: rgb(14, 150, 14);
 }
 
 * {
@@ -439,7 +442,7 @@ header {
 
 /* Jelszó ellenőrző */
 .passwordChecker {
-    display: flex;
+    display: none;
     flex-direction: column;
     margin: 0 auto;
     font-size: .9rem;
@@ -448,6 +451,8 @@ header {
     margin-top: 25px;
     row-gap: 10px;
     font-size: 1rem;
+    animation: transitionIn .3s;
+    font-weight: 700;
 }
 .lines {
     display: flex;
@@ -459,4 +464,17 @@ header {
     width: 50px;
     height: 4px;
     border-radius: 50px;
+    animation: transitionInLine .2s;
+}
+
+@keyframes transitionInLine {
+    from {
+        opacity: 0;
+        transform: translateY(-1vh);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0vh);
+    }
 }

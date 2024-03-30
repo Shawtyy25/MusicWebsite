@@ -98,6 +98,88 @@ function hidePassword(eyeClosed, eyeOpened, inputField) {
     })
 }
 
+function passwordCheckWeak(inputField, passCheckWindow, guideMessege, line1, line2, line3) {
+    inputField.addEventListener('focusout', () => {
+        if (inputField.value.length < 15 && inputField.value.toLowerCase()) {
+            passCheckWindow.style.display = 'flex'
+            guideMessege.innerHTML = 'A jelszó túl gyenge'
+            guideMessege.style.color = 'var(--passwordWrong)'
+            line1.style.backgroundColor = 'var(--passwordWrong)'
+            line2.style.backgroundColor = ''
+            line3.style.backgroundColor = ''
+            
+        }
+    })
+}
+
+function passwordCheckMid(inputField, passCheckWindow, guideMessege, line1, line2, line3) {
+    inputField.addEventListener('focusout', () => {
+        if (inputField.value.length > 8) {
+            passCheckWindow.style.display = 'flex'
+            guideMessege.innerHTML = 'A jelszóhoz szám és kistbetű szükséges'
+            guideMessege.style.color = 'var(--passwordMid)'
+            line1.style.backgroundColor = 'var(--passwordMid)'
+            line2.style.backgroundColor = 'var(--passwordMid)'
+            line3.style.backgroundColor = ''
+        }
+    })
+}
+function passwordCheckCorrect(inputField, passCheckWindow, guideMessege, line1, line2, line3) {
+    inputField.addEventListener('focusout', () => {
+        if ((inputField.value.length > 15 && inputField.value.toLowerCase() && !/\d/.test(inputField.value))
+        || 
+
+        (inputField.value.length < 8 && inputField.value.length > 5 && /\d/.test(inputField.value) && /[A-Z]/.test(inputField.value)) 
+        || 
+
+        (inputField.value.length > 8 && inputField.value.length < 15 && /\d/.test(inputField.value) && inputField.value.toLowerCase())) {
+
+            passCheckWindow.style.display = 'flex'
+            guideMessege.innerHTML = 'A jelszó erős'
+            guideMessege.style.color = 'var(--passwordCorrect)'
+            line1.style.backgroundColor = 'var(--passwordCorrect)'
+            line2.style.backgroundColor = 'var(--passwordCorrect)'
+            line3.style.backgroundColor = 'var(--passwordCorrect)'
+        }
+    })
+}
+
+
+function passwordFocus(inputField, button, arrowIcon, previousFieldButton, crossIcon, tickIcon) {
+    inputField.addEventListener('focus', () => {
+        inputField.style.border = ''
+        button.style.opacity = ''
+        button.style.visibility = ''
+        arrowIcon.style.display = ''
+        previousFieldButton.style.opacity = '0'
+        previousFieldButton.style.visibility = 'hidden'
+        button.style.pointerEvents = ''
+        crossIcon.style.display = ''
+        tickIcon.style.display = ''
+    })
+
+}
+function passwordFocusOut(inputField, button, arrowIcon, tickIcon, crossIcon) {
+    inputField.addEventListener('focusout', () => {
+        inputField.style.border = 'none'
+        button.style.opacity = ''
+        button.style.visibility = ''
+        button.style.pointerEvents = ''
+        arrowIcon.style.display = 'none'
+
+        if (inputField.value.length >= 8) {
+            tickIcon.style.display = 'block'
+            crossIcon.style.display = ''
+
+        } else {
+            crossIcon.style.display = 'block'
+            tickIcon.style.display = ''
+
+        }
+    })
+
+}
+
 // Függvények vége------------> 
 
 const h3 = document.querySelector('.rHeader h3');
@@ -128,6 +210,14 @@ const resume_P = document.querySelector('.resume-P')
 const passwordInput = document.querySelector('.password-Input')
 const passwordYes = document.querySelector('.passYes')
 const passwordNo = document.querySelector('.passNo')
+const passwordChecker = document.querySelector('.passwordChecker')
+const line1 = document.querySelector('.line1')
+const line2 = document.querySelector('.line2')
+const line3 = document.querySelector('.line3')
+const passwordMiniGuide = document.querySelector('.passwordMiniGuide')
+const passordConf = document.querySelector('.passwordConf')
+const passordConfForm = document.querySelector('.passwordConfForm')
+const 
 
 h3.style.display = 'block'
 let welcome = 'Üdvözöllek'
@@ -137,6 +227,7 @@ let usernameValueRight = false
 let usernameOpen = false
 let buttonPressed = Boolean(false)
 let unButtonPressed = Boolean(false)
+let pwButtonPressed = Boolean(false)
 
 
 let passwordJSON = localStorage.getItem('user_Password')
@@ -149,7 +240,6 @@ let user_Username = JSON.parse(usernameJSON)
 let user_Email = JSON.parse(emailJSON)
 let user_Password = JSON.parse(passwordJSON)
 /* json end */
-
 
 
 
@@ -213,6 +303,7 @@ email_input.addEventListener('focusout', () => {
     } else {
         if (emailPattern.test(email_input.value) && !user_Email.includes(email_input.value)) {
             error_Messege.style.display = ''
+            
             buttonRight(resume);
 
                 buttonOnPress(emailForm, username, usernameForm,  correct, arrow, mistake, resume, email_input, usernameInput)
@@ -243,8 +334,8 @@ email_input.addEventListener('focusout', () => {
 
                             // Jelszó ellenőrzése
                             if (unButtonPressed) {
-                                inputFocus(passwordInput, resume_P, correct_P, arrow_P, mistake_P, resume_U)
-                                inputFocusOut(passwordInput, correct_P, arrow_P, mistake_P, resume_P)
+                                passwordFocus(passwordInput, resume_P, arrow_P, resume_U, mistake_P, correct_P)
+                                passwordFocusOut(passwordInput, resume_P, arrow_P, correct_P, mistake_P)
 
                                 // JELSZÓ LÁTHATÓSÁGA
                                 showPassword(passwordNo, passwordYes, passwordInput)
@@ -253,10 +344,19 @@ email_input.addEventListener('focusout', () => {
                                 passwordInput.addEventListener('focusout', () => {
                                     if (passwordInput.value.length === 0) {
                                         inputFocusOut_wrong(passwordInput, correct_P, arrow_P, mistake_P, resume_P) 
+                                        passwordChecker.style.display = ''
                                     }
-                                    // folytatni!!!!
+
                                 } )
-                                
+                                passwordCheckWeak(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
+                                passwordCheckMid(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
+                                passwordCheckCorrect(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3)
+                                pwButtonPressed = Boolean(true)
+
+
+                                if (pwButtonPressed) {
+
+                                }
                             }
 
 
@@ -273,7 +373,6 @@ email_input.addEventListener('focusout', () => {
                             
                 }
 
-            // TÉRJ VISSZA!!!!
 
         } else if (!emailPattern.test(email_input.value) || user_Email.includes(email_input.value)) {
             error_Messege.style.display = 'flex'
