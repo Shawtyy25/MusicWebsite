@@ -145,7 +145,7 @@ function passwordCheckCorrect(inputField, passCheckWindow, guideMessege, line1, 
 }
 
 
-function passwordFocus(inputField, button, arrowIcon, previousFieldButton, crossIcon, tickIcon) {
+function passwordFocus(inputField, button, arrowIcon, previousFieldButton, crossIcon, tickIcon, otherEyeOff, otherEyeOn, currentEyeOff, currentEyeOn) {
     inputField.addEventListener('focus', () => {
         inputField.style.border = ''
         button.style.opacity = ''
@@ -156,6 +156,10 @@ function passwordFocus(inputField, button, arrowIcon, previousFieldButton, cross
         button.style.pointerEvents = ''
         crossIcon.style.display = ''
         tickIcon.style.display = ''
+        otherEyeOff.style.display = 'none'
+        otherEyeOn.style.display = 'none'
+        currentEyeOff.style.display = ''
+        currentEyeOn.style.display = ''
     })
 
 }
@@ -217,7 +221,13 @@ const line3 = document.querySelector('.line3')
 const passwordMiniGuide = document.querySelector('.passwordMiniGuide')
 const passordConf = document.querySelector('.passwordConf')
 const passordConfForm = document.querySelector('.passwordConfForm')
-const 
+const correct_Pconf = document.querySelector('.correct-PC')
+const arrow_Pconf = document.querySelector('.arrow-PC')
+const mistake_Pconf = document.querySelector('.mistake-PC')
+const resume_Pconf = document.querySelector('.resume-PC')
+const passwordConfInput = document.querySelector('.passwordConf-Input')
+const passwordConfYes = document.querySelector('.passYesConf')
+const passwordConfNo = document.querySelector('.passNoConf')
 
 h3.style.display = 'block'
 let welcome = 'Üdvözöllek'
@@ -334,7 +344,7 @@ email_input.addEventListener('focusout', () => {
 
                             // Jelszó ellenőrzése
                             if (unButtonPressed) {
-                                passwordFocus(passwordInput, resume_P, arrow_P, resume_U, mistake_P, correct_P)
+                                passwordFocus(passwordInput, resume_P, arrow_P, resume_U, mistake_P, correct_P, passwordConfNo, passwordConfYes, passwordNo, passwordYes)
                                 passwordFocusOut(passwordInput, resume_P, arrow_P, correct_P, mistake_P)
 
                                 // JELSZÓ LÁTHATÓSÁGA
@@ -345,18 +355,21 @@ email_input.addEventListener('focusout', () => {
                                     if (passwordInput.value.length === 0) {
                                         inputFocusOut_wrong(passwordInput, correct_P, arrow_P, mistake_P, resume_P) 
                                         passwordChecker.style.display = ''
-                                    }
 
+                                    }
+                                    if (passwordInput.value.length > 8) {
+                                        buttonRight(resume_P)
+
+                                            buttonOnPress(passwordForm, passordConf, passordConfForm, correct_Pconf, arrow_Pconf, mistake_Pconf, resume_P, passwordInput, passwordConfInput)
+                                            pwButtonPressed = Boolean(true)
+
+                                    }
                                 } )
                                 passwordCheckWeak(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
                                 passwordCheckMid(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
                                 passwordCheckCorrect(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3)
-                                pwButtonPressed = Boolean(true)
 
-
-                                if (pwButtonPressed) {
-
-                                }
+                                // Jelszó ellenőrző folytatása!!! -->> 
                             }
 
 
