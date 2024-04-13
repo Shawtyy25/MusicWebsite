@@ -10,6 +10,7 @@ function buttonRight(button) {
         button.style.border = '1px solid rgb(40, 200, 6)'
         button.style.color = 'rgb(40, 200, 6)'
     })
+
 }
 
 
@@ -351,26 +352,24 @@ email_input.addEventListener('focusout', () => {
                                 showPassword(passwordNo, passwordYes, passwordInput)
                                 hidePassword(passwordNo, passwordYes, passwordInput)
 
-                                passwordInput.addEventListener('focusout', () => {
-                                    if (passwordInput.value.length === 0) {
-                                        inputFocusOut_wrong(passwordInput, correct_P, arrow_P, mistake_P, resume_P) 
-                                        passwordChecker.style.display = ''
-
-                                    }
-                                    if (passwordInput.value.length > 8) {
-                                        buttonRight(resume_P)
-
-                                            buttonOnPress(passwordForm, passordConf, passordConfForm, correct_Pconf, arrow_Pconf, mistake_Pconf, resume_P, passwordInput, passwordConfInput)
-                                            pwButtonPressed = Boolean(true)
-
-                                    }
-                                } )
                                 passwordCheckWeak(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
                                 passwordCheckMid(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
                                 passwordCheckCorrect(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3)
 
+                                
                                 // Jelszó ellenőrző folytatása!!! -->> 
                             }
+
+                            passwordInput.addEventListener('focusout', () => {
+                                if (passwordInput.value.length === 0) {
+                                    inputFocusOut_wrong(passwordInput, correct_P, arrow_P, mistake_P, resume_P) 
+                                    passwordChecker.style.display = 'none'
+
+                                }
+                                if (passwordInput.value.length > 8) {
+                                    buttonRight(resume_P);
+                                }
+                            } )
 
 
                         } 
