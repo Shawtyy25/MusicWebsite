@@ -8,12 +8,28 @@ const cover = document.querySelector(".cover");
 const slider = document.querySelector(".slider");
 const thumb = document.querySelector(".slider-thumb");
 const progress = document.querySelector(".progress");
-const time = document.querySelector(".time")
-const fullTime = document.querySelector(".fulltime")
-const volumeSlider = document.querySelector(".volume-slider .slider")
-const volumeProgress = document.querySelector(".volume-slider .progress")
-const volumeIcon = document.querySelector(".volume-icon")
+const time = document.querySelector(".time");
+const fullTime = document.querySelector(".fulltime");
+const volumeSlider = document.querySelector(".volume-slider .slider");
+const volumeProgress = document.querySelector(".volume-slider .progress");
+const volumeIcon = document.querySelector(".volume-icon");
+const musicTopIcon = document.querySelector("#musicTopIcon");
+const musicDropdown = document.querySelector(".musicDropdown");
+const li1 = document.querySelector("#musicDropdownLi1");
+const icon1 = document.querySelector("#musicDropdownIcon1");
+const li2 = document.querySelector("#musicDropdownLi2");
+const icon2 = document.querySelector("#musicDropdownIcon2");
+const navDropdownProfile = document.querySelector(".navDropdownProfile");
+const navDropdownProfileInteract = document.querySelector(".navDropdownProfileInteract");
+const navDropdownNotificationsInteract = document.querySelector(".navDropdownNotificationsInteract");
+const navDropdownNotifications = document.querySelector(".navDropdownNotifications");
 
+window.addEventListener("load", () =>{
+    document.querySelector(".loader").classList.add("loaderHidden");
+    document.querySelector(".loader").addEventListener("transitionend", () =>{
+        document.body.removeChild(document.querySelector(".loader"));
+    })
+});
 
 // is the track playing
 let trackPlaying = false;
@@ -45,14 +61,17 @@ const covers = [
 
 playBtn.addEventListener("click", playTrack);
 
+
 function playTrack(){
     if(trackPlaying === false){
         audio.play();
         playBtn.innerHTML = '<span class="musicIcons"><i class="fa-solid fa-stop"></i></span>';
+        cover.style.animationName = "musicDisc"
         trackPlaying = true;
     } else{
         audio.pause();
         playBtn.innerHTML = '<span class="musicIcons"><i class="fa-solid fa-play"></i></span>';
+        cover.style.animationName = ""
         trackPlaying = false;
     }
 }
@@ -167,5 +186,57 @@ volumeIcon.addEventListener("click", () =>{
         audio.volume = 0.5;
         volumeProgress.style.width = val;
         volumeMuted = false;
+    }
+});
+
+musicClick = false;
+musicTopIcon.addEventListener("click", () =>{
+    if(musicClick === false){
+        musicDropdown.style.display = "block";
+        musicClick = true;
+    } else{
+        musicDropdown.style.display = "none"
+        musicClick = false;
+    }
+});
+
+
+li1.addEventListener("mouseover", () =>{
+    icon1.style.color = "white";
+});
+
+li1.addEventListener("mouseout", () =>{
+    icon1.style.color = "";
+});
+
+
+
+li2.addEventListener("mouseover", () =>{
+    icon2.style.color = "white";
+});
+
+li2.addEventListener("mouseout", () =>{
+    icon2.style.color = "";
+});
+
+dropdownProfilClick = false;
+navDropdownProfileInteract.addEventListener("click", () =>{
+    if (dropdownProfilClick === false){
+        navDropdownProfile.style.display = "block";
+        dropdownProfilClick = true;
+    } else{
+        navDropdownProfile.style.display = "none";
+        dropdownProfilClick = false;
+    }
+});
+
+dropdownNotifClick = false;
+navDropdownNotificationsInteract.addEventListener("click", () =>{
+    if (dropdownNotifClick === false){
+        navDropdownNotifications.style.display = "block";
+        dropdownNotifClick = true;
+    } else{
+        navDropdownNotifications.style.display = "none";
+        dropdownNotifClick = false;
     }
 });

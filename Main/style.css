@@ -4,6 +4,48 @@ body{
     font-family: sans-serif;
 }
 
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    z-index: 100000000;
+    transition: opacity 2s, visibility .75s;
+}
+
+.loaderHidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after{
+    content: "";
+    width: 10rem;
+    height: 10rem;
+    border: 1rem solid #ddd;
+    border-top-color: var(--mainC);
+    border-radius: 50%;
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loading{
+    from{
+        transform: rotate(0turn);
+    }
+
+    to{
+        transform: rotate(1turn);
+    }
+}
+
 ::-webkit-scrollbar{
     width: .5rem;
 }
@@ -31,6 +73,7 @@ img {
 :root {
 
     --mainC: rgb(99, 22, 214);
+    /* --mainC: rgb(36, 36, 180); */
     --grayish: rgb(196, 196, 196);
     --gray: rgb(20, 20, 20);
     --midBg: rgb(32, 32, 32);
@@ -93,12 +136,7 @@ img {
     text-align: center;
     font-size: 3rem;
     color: var(--mainC);
-    text-shadow: 0 0 7px #2e2e2e,
-    0 0 1px #2e2e2e,
-    0 0 1px #2e2e2e,
-    0 0 2px rgb(171, 129, 235),
-    0 0 2px rgb(171, 129, 235),
-    0 0 2px rgb(171, 129, 235),
+    text-shadow:
     0 0 2px rgb(171, 129, 235),
     0 0 51px rgb(171, 129, 235);
     margin: 0;
@@ -139,6 +177,8 @@ img {
     align-items: center;
     gap: .5rem;
     overflow-y: scroll;
+    height: 38%;
+    padding-bottom: .5rem;
 }
 
 .leftSidePlaylistsText{
@@ -152,10 +192,16 @@ img {
     top: 0;
     z-index: 10;
     background-color: rgb(17,17,17);
+    padding: .5rem 0;
 }
 
-#LSPT{
+.fa-plus{
     margin-top: 7px;
+    transition: all .3s;
+}
+
+.fa-plus:hover{
+    color: var(--mainC);
 }
 
 .leftSidePlaylistsText h4{
@@ -172,12 +218,19 @@ img {
     color: var(--mainC);
 }
 
-.leftSidePlaylistsText .leftMainIcons{
+.leftSidePlaylistsText{
     color: var(--mainC);
 }
 
+.leftMainIcons{
+    color: white;
+}
+
 .leftSideLogout{
-    margin-bottom: 1rem;
+    background-color: var(--gray);
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 1rem;
 }
 
 
@@ -195,6 +248,25 @@ nav{
     padding: 1rem .5rem;
     border-radius: 1rem;
     margin: 0 1rem;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+    animation-name: navAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+@keyframes navAnimation {
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: .5;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
 
 nav ul{
@@ -204,6 +276,46 @@ nav ul{
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
+}
+
+.navUlSlideUp{
+    animation-name: navUlAnimationUp;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+@keyframes navUlAnimationUp {
+    from{
+        margin-top: -5rem;
+    }
+
+    to{
+        margin-top: 0;
+    }
+}
+
+.navUlSlideDown{
+    animation-name: navUlAnimationDown;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+@keyframes navUlAnimationDown {
+    0%{
+        margin-bottom: -5rem;
+        opacity: 0;
+    }
+
+    25%{
+        opacity: 0;
+    }
+
+    100%{
+        margin-bottom: 0;
+        opacity: 1;
+    }
 }
 
 nav ul li{
@@ -259,8 +371,148 @@ nav ul .navUlRight{
     align-items: center;
     gap: 5rem;
     flex-wrap: wrap;
+    animation-name: navUlRightAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    position: relative;
+    /* background-color: blue; */
 }
 
+nav ul .navUlRight li a{
+    cursor: pointer;
+}
+
+@keyframes navUlRightAnimation {
+    from{
+        margin-right: -10rem;
+    }
+
+    to{
+        margin-right: 0;
+    }
+}
+
+.navDropdownProfile{
+    display: none;
+    background-color: var(--midBg);
+    /* background-color: gray; */
+    position: absolute;
+    top: 6rem;
+    right: 12.9rem;
+    width: 20rem;
+    height: auto;
+    z-index: 10000;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    border: 2px solid rgb(36, 36, 36);
+}
+
+.navDropdownProfileArrow{
+    background-color: var(--midBg);
+    /* background-color: #fff; */
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: -.5rem;
+    right: 4rem;
+    transform:rotate(45deg);
+}
+
+.navDropdownProfileText{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: white;
+}
+
+.navDropdownProfileText li{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+    padding: 1rem;
+    border-radius: .8rem 1rem;
+}
+
+.navDropdownProfileText li h6{
+    margin: 0;
+}
+
+.navDropdownProfileText li:hover{
+    background-color: var(--mainC);
+}
+
+.navDropdownNotifications{
+    display: none;
+    background-color: var(--midBg);
+    position: absolute;
+    top: 6rem;
+    right: 5.5rem;
+    width: 20rem;
+    height: 20rem;
+    z-index: 10000;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    border: 2px solid rgb(36, 36, 36);
+    overflow-y: auto;
+}
+
+.navDropdownNotificationsArrow{
+    background-color: var(--midBg);
+    width: 1rem;
+    height: 1rem;
+    position: fixed;
+    top: 5.5rem;
+    right: 9.5rem;
+    transform:rotate(45deg);
+}
+
+.navDropdownNotificationsText{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: white;
+}
+
+.navDropdownNotificationsText li{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+    padding: 1rem;
+    border-radius: .8rem 1rem;
+}
+
+.navDropdownNotificationsText li h6{
+    margin: 0;
+}
+
+.navDropdownNotificationsDelete{
+    display: flex ;
+    justify-content: center !important;
+    gap: 1rem;
+    text-align: center;
+    padding-bottom: 0;
+    color: rgb(152, 96, 236);
+}
+
+.navDropdownNotificationsDelete h6{
+    text-decoration: 3px underline var(--mainC);
+    color: rgb(152, 96, 236);
+}
+
+.navDropdownNotificationsDelete:hover{
+    background-color: transparent !important;
+}
+
+.navDropdownNotificationsText li:hover{
+    background-color: var(--mainC);
+}
 
 /* Fő része az oldalnak, a középső rész */
 main{
@@ -279,7 +531,7 @@ main{
 
 .middle{
     display: flex;
-    height: 89%;
+    height: 100%;
     justify-content: space-between;
 }
 
@@ -311,6 +563,7 @@ main{
 /* Zenehallgató rész */
 
 .musicListening{
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -322,6 +575,7 @@ main{
     width: 100%;
     padding: 0rem 2rem 0 2rem;
     position: relative;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
 }
 
 .musicListeningTop{
@@ -343,6 +597,70 @@ main{
     font-size: 2rem;
     cursor: pointer;
     margin-left: 10rem;
+    transition: all .3s;
+}
+
+#musicTopIcon:hover{
+    color: var(--mainC);
+}
+
+.musicDropdown{
+    display: none;
+    background-color: var(--midBg);
+    height: auto;
+    width: 15rem;
+    position: absolute;
+    top: 4.3rem;
+    right: 1rem;
+    z-index: 10000;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    border: 2px solid rgb(36, 36, 36);
+}
+
+.musicDropdownText{
+    color: white;
+}
+
+.musicDropdownText li{
+    display: flex;
+    justify-content: start;
+    gap: 1rem;
+    list-style-type: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    padding: .8rem 1rem;
+}
+
+.musicDropdownText h6{
+    margin: 0;
+}
+
+.musicDropdown i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mainC);
+    filter: drop-shadow(0px 3px 10px );
+}
+
+.musicDropdown li:nth-child(1), .musicDropdown li:nth-child(2){
+    margin-bottom: .5rem;
+}
+
+.musicDropdownText li:hover{
+    background-color: var(--mainC);
+}
+
+.musicDropdownArrow{
+    background-color: var(--midBg);
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: -.5rem;
+    right: 4rem;
+    transform:rotate(45deg);
 }
 
 .track-title{
@@ -355,43 +673,43 @@ main{
     height: 10rem;
     border: 10px var(--mainC) solid;
     border-radius: 50%;
-    /* box-shadow: 0px 0 30px white; */
-    animation-name: musicDisc;
     animation-delay: 0;
-    animation-duration: .7s;
+    animation-duration: 1s;
     animation-iteration-count: infinite;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
 }
 
 @keyframes musicDisc{
     from{
-        transform: rotateZ(0deg);
+        transform: rotate(1turn);
     }
     
     to{
-        transform: rotateZ(360deg);
+        transform: rotate(2turn);
     }
 }
 
-.asd{
+.musicHead{
     margin-top: 5rem;
     position: relative;
 }
 
 .musicCircle{
-    width: 2rem;
-    height: 2rem;
+    width: 1.2rem;
+    height: 1.2rem;
     background-color: var(--mainC);
-    border-radius: 50%;
     position: absolute;
+    border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0px 0px 5px white);
+    filter: drop-shadow(0px 0px 5px black);
     z-index: 100;
 }
 
 span, small{
     color: #eee;
+    
 }
 
 small{
@@ -423,7 +741,7 @@ small{
     height: .4em;
     outline: none;
     border-radius: 1rem;
-    background-color: #5e5e5e;
+    background-color: black;
     cursor: pointer;
 }
 
@@ -439,7 +757,7 @@ small{
 .timeline-slider .slider-thumb{
     width: 1.7em;
     height: 1.7em;
-    background-color: #cccccc;
+    background-image: radial-gradient(rgb(80, 80, 80), rgb(59, 59, 59));
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -454,22 +772,22 @@ small{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: .7em;
-    height: .7em;
+    width: .9rem;
+    height: .9rem;
     border-radius: inherit;
     transition: .3s;
-    background-color: #333;
+    background-color: var(--mainC);
 }
 
 .timeline-slider .range-slider:hover .slider-thumb:before{
-    background-color: var(--mainC);
+    background-color: white;
 }
 
 .progress{
     width: 50%;
     height: .4em;
     border-radius: 1rem;
-    background-image: linear-gradient(90deg, rgb(99, 22, 214), #99522b);
+    background-image: linear-gradient(90deg, rgb(99, 22, 214), #360bd3);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -478,10 +796,10 @@ small{
 }
 
 .volume-slider{
-    max-width: 16em;
-    margin: 1em auto;
+    width: 12rem;
+    margin: 1rem auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -509,16 +827,26 @@ small{
 
 .btn:hover{
     background-color: var(--mainC);
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
 }
 
 .btn-main{
     background: var(--mainC);
     width: 4.5em;
     height: 4.5em;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
 }
 
 .btn-main span{
     color: #fff;
+}
+
+#btnPrev, #btnNext{
+    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+}
+
+#btnPrev:hover, #btnNext:hover{
+    filter: drop-shadow(0px 0px 0px);
 }
 
 .controls{
@@ -548,6 +876,7 @@ small{
     width: 95%;
     border-radius: 1rem;
     margin: 0 auto;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
 }
 
 .introductionMain{
@@ -563,16 +892,18 @@ small{
     left: 50%;
     top: 60%;
     transform: translate(-75%,-75%);
-    z-index: 100000000000;
+    z-index: 1;
     color: white;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 2rem;
+    width: 30rem;
     box-shadow: rgba(0, 0, 0, 0.9) 0px 22px 70px 4px;
     animation-name: slideshowMain;
     animation-duration: .8s;
-    animation-delay: 0;
+    animation-delay: 0s;
+    padding-left: 3rem;
 }
 
 .introductionText h6{
@@ -581,21 +912,63 @@ small{
     letter-spacing: 2px;
 }
 
-.introductionIMG{
+.introductionIMGFirst, .introductionIMGSecond, .introductionIMGThird{
     position: relative;
     border-radius: 1rem;
     width: 100%;
     height: 30rem;
-    background-image:url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.introductionIMGFirst{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.introductionIMGSecond{
+    background-image:url("./assets/covers/musicpfp1.jpg");
+}
+
+.introductionIMGThird{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
 }
 
 .introductionPerformer{
     display: flex;
     align-items: center;
     gap: 1rem;
+    animation-name: slideLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: .2s;
+}
+
+@keyframes slideLeft {
+    from{
+        margin-left: -4rem;
+    }
+
+    to{
+        margin-left: 0rem;
+    }
+}
+
+.slideRightAnimation{
+    animation-name: slideRight;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+@keyframes slideRight {
+    from{
+        margin-left: 10rem;
+    }
+
+    to{
+        margin-left: 0rem;
+    }
 }
 
 .introductionPerformer h3{
@@ -615,6 +988,20 @@ small{
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
+    animation-name: appear;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
 }
 
 .introductionInteract button{
@@ -708,7 +1095,6 @@ small{
 
 .topArtists:hover{
     background-color: rgba(82, 82, 82, 0.2);
-    scale: 1.02;
 }
 
 .topArtRad{
@@ -729,7 +1115,7 @@ small{
 }
 
 #ArtistTwoIMG{
-    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+    background-image:url("./assets/covers/musicpfp1.jpg");
 }
 
 #ArtistThreeIMG{
@@ -786,7 +1172,6 @@ small{
 
 .topAlbums:hover{
     background-color: rgba(82, 82, 82, 0.2);
-    scale: 1.02;
 }
 
 .AlbumText{
@@ -863,7 +1248,6 @@ small{
 
 .recentlyPlayed:hover{
     background-color: rgba(82, 82, 82, 0.2);
-    scale: 1.02;
 }
 
 .recentlyPlayedText{
