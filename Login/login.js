@@ -71,7 +71,6 @@ loginButton.addEventListener('click', () => {
             errorP.innerHTML = 'Helytelen felhasználónév vagy jelszó.'
             error.style.display = 'flex'
             pressCount += 1
-            console.log(pressCount)
         }
     } else {
         error.style.display = 'none'
@@ -89,7 +88,7 @@ loginButton.addEventListener('click', () => {
 
         let timer = setInterval(() => {
             time--
-            console.log(time)
+            
             errorP.innerHTML = time + ' másodperc múlva újra próbálkozhatsz.'
 
             if (time < 1) {
@@ -103,20 +102,20 @@ loginButton.addEventListener('click', () => {
             }
         }, 1000)
 
-        console.log('teszt')
+
 
     }
 })
 emailInput.addEventListener('blur', () => {
     if (emailInput.value.length > 0 && !emailInputCount) {
         emailInputCount = true
-        console.log(emailInputCount)
+        
     }
 })
 passwordInput.addEventListener('blur', () => {
     if (passwordInput.value.length > 0 && !passInputCount) {
         passInputCount = true
-        console.log(passInputCount)
+        
     }
 })
 
