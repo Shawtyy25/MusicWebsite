@@ -99,7 +99,7 @@ function hidePassword(eyeClosed, eyeOpened, inputField) {
     })
 }
 
-function passwordCheckWeak(inputField, passCheckWindow, guideMessege, line1, line2, line3) {
+function passwordCheckWeak(inputField, passCheckWindow, guideMessege, line1, line2, line3, guideM, resumeButton) {
     inputField.addEventListener('focusout', () => {
         if (inputField.value.length < 15 && inputField.value.toLowerCase()) {
             passCheckWindow.style.display = 'flex'
@@ -109,11 +109,25 @@ function passwordCheckWeak(inputField, passCheckWindow, guideMessege, line1, lin
             line2.style.backgroundColor = ''
             line3.style.backgroundColor = ''
             
+            guideM.style.display = ''
+            resumeButton.style.opacity = ''
+            resumeButton.style.visibility = ''
+            resumeButton.style.border = ''
+            resumeButton.style.color = ''
+
+            resumeButton.addEventListener('mouseover', () => {
+                resumeButton.style.border = ''
+                resumeButton.style.color = ''
+            })
+            resumeButton.addEventListener('mouseout', () => {
+                resumeButton.style.border = ''
+                resumeButton.style.color = ''
+            })
         }
     })
 }
 
-function passwordCheckMid(inputField, passCheckWindow, guideMessege, line1, line2, line3) {
+function passwordCheckMid(inputField, passCheckWindow, guideMessege, line1, line2, line3, guideM) {
     inputField.addEventListener('focusout', () => {
         if (inputField.value.length > 8) {
             passCheckWindow.style.display = 'flex'
@@ -122,10 +136,12 @@ function passwordCheckMid(inputField, passCheckWindow, guideMessege, line1, line
             line1.style.backgroundColor = 'var(--passwordMid)'
             line2.style.backgroundColor = 'var(--passwordMid)'
             line3.style.backgroundColor = ''
+
+            guideM.style.display = ''
         }
     })
 }
-function passwordCheckCorrect(inputField, passCheckWindow, guideMessege, line1, line2, line3) {
+function passwordCheckCorrect(inputField, passCheckWindow, guideMessege, line1, line2, line3, guideM) {
     inputField.addEventListener('focusout', () => {
         if ((inputField.value.length > 15 && inputField.value.toLowerCase() && !/\d/.test(inputField.value))
         || 
@@ -141,6 +157,7 @@ function passwordCheckCorrect(inputField, passCheckWindow, guideMessege, line1, 
             line1.style.backgroundColor = 'var(--passwordCorrect)'
             line2.style.backgroundColor = 'var(--passwordCorrect)'
             line3.style.backgroundColor = 'var(--passwordCorrect)'
+            guideM.style.display = 'none'
         }
     })
 }
@@ -185,6 +202,19 @@ function passwordFocusOut(inputField, button, arrowIcon, tickIcon, crossIcon) {
 
 }
 
+
+
+function passwordConfirmation(inputField, button, prevButton,arrow, tick, cross) {
+    inputField.style.display = 'flex'
+    button.style.display = 'flex'
+    prevButton.style.display = ''
+    arrow.style.display = 'flex'
+    tick.style.display = ''
+    cross.style.display = ''
+
+
+}
+
 // Függvények vége------------> 
 
 const h3 = document.querySelector('.rHeader h3');
@@ -220,7 +250,7 @@ const line1 = document.querySelector('.line1')
 const line2 = document.querySelector('.line2')
 const line3 = document.querySelector('.line3')
 const passwordMiniGuide = document.querySelector('.passwordMiniGuide')
-const passordConf = document.querySelector('.passwordConf')
+const passwordConf = document.querySelector('.passwordConf')
 const passordConfForm = document.querySelector('.passwordConfForm')
 const correct_Pconf = document.querySelector('.correct-PC')
 const arrow_Pconf = document.querySelector('.arrow-PC')
@@ -229,6 +259,7 @@ const resume_Pconf = document.querySelector('.resume-PC')
 const passwordConfInput = document.querySelector('.passwordConf-Input')
 const passwordConfYes = document.querySelector('.passYesConf')
 const passwordConfNo = document.querySelector('.passNoConf')
+const passwordGuide = document.querySelector('.passwordGuide')
 
 h3.style.display = 'block'
 let welcome = 'Üdvözöllek'
@@ -239,6 +270,7 @@ let usernameOpen = false
 let buttonPressed = Boolean(false)
 let unButtonPressed = Boolean(false)
 let pwButtonPressed = Boolean(false)
+let isPassRight = false
 
 
 let passwordJSON = localStorage.getItem('user_Password')
@@ -352,12 +384,16 @@ email_input.addEventListener('focusout', () => {
                                 showPassword(passwordNo, passwordYes, passwordInput)
                                 hidePassword(passwordNo, passwordYes, passwordInput)
 
-                                passwordCheckWeak(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
-                                passwordCheckMid(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3);
-                                passwordCheckCorrect(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3)
+                                passwordCheckWeak(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3, passwordGuide, resume_P);
+                                passwordCheckMid(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3, passwordGuide);
+                                passwordCheckCorrect(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3, passwordGuide)
 
                                 
-                                // Jelszó ellenőrző folytatása!!! -->> 
+                                // Jelszó ellenőrző folytatása!!! -->>  
+
+                                resume_P.addEventListener('click', () => {
+                                    passwordConfirmation(passwordConf, resume_Pconf, resume_P, arrow_Pconf, correct_Pconf, mistake_Pconf)
+                                })
                             }
 
                             passwordInput.addEventListener('focusout', () => {
