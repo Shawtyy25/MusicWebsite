@@ -1,0 +1,1172 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: sans-serif;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    z-index: 100000000;
+    transition: opacity 2s, visibility .75s;
+}
+
+.loaderHidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: "";
+    width: 10rem;
+    height: 10rem;
+    border: 1rem solid #ddd;
+    border-top-color: var(--mainC);
+    border-radius: 50%;
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+::-webkit-scrollbar {
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--mainC);
+    border-radius: 1rem;
+}
+
+.slideList::-webkit-scrollbar{
+    height: .4rem;
+}
+
+.slideList::-webkit-scrollbar-track {
+    background-color: var(--grayish);
+}
+
+.slideList::-webkit-scrollbar-thumb {
+    background-color: rgb(94, 94, 94);
+    border-radius: 1rem;
+}
+
+.slideList::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(80, 80, 80);
+    border-radius: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:root {
+    --mainC: rgb(99, 22, 214);
+    /* --mainC: rgb(36, 36, 180); */
+    --grayish: rgb(196, 196, 196);
+    --gray: rgb(20, 20, 20);
+    --midBg: rgb(32, 32, 32);
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+}
+
+.leftSide {
+    width: 15rem;
+    height: 100vh;
+    background-image: linear-gradient(rgb(10, 10, 10), rgb(20, 20, 20));
+    background-repeat: no-repeat;
+    position: sticky;
+    left: 0;
+    top: 0;
+}
+
+.line {
+    color: white;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    color: white;
+    transition: color .3s;
+}
+
+.icons:hover {
+    color: var(--mainC);
+}
+
+.leftSideTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 1rem;
+}
+
+.leftSideTitle a {
+    display: flex;
+    align-items: center;
+}
+
+.leftSideTitleText {
+    font-family: "Madimi One", sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--mainC);
+    text-shadow:
+        0 0 2px rgb(171, 129, 235),
+        0 0 51px rgb(171, 129, 235);
+    margin: 0;
+}
+
+.leftSideFlex {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 1rem;
+    width: 14rem;
+    padding: .5rem 3rem .5rem 1rem;
+    transition: all .3s;
+    color: var(--grayish);
+}
+
+.leftSideFlex h5 {
+    text-align: center;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.leftSideFlex:hover {
+    background-color: var(--mainC);
+    color: white;
+}
+
+.leftSideMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.leftSidePlaylists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding-bottom: .5rem;
+    height: 20%;
+}
+
+.leftSidePlaylistsPlay {
+    overflow-y: scroll;
+}
+
+.leftSidePlaylistsText {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+    padding: .5rem 0;
+    width: 100%;
+}
+
+.fa-plus {
+    margin-top: 7px;
+    transition: all .3s;
+    color: white;
+}
+
+.fa-plus:hover {
+    color: var(--mainC);
+}
+
+.leftSidePlaylistsText h4 {
+    margin: 0;
+}
+
+.leftSidePlaylistsText h4 a {
+    text-decoration: none;
+    color: white;
+    transition: all .3s;
+}
+
+.leftSidePlaylistsText h4 a:hover {
+    color: var(--mainC);
+}
+
+.leftSidePlaylistsText {
+    color: var(--mainC);
+}
+
+.leftMainIcon {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.leftMainIcons {
+    font-size: 1.3rem;
+}
+
+.leftSideLogout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    width: calc(100vw - 15rem);
+    height: 10rem;
+    background-color: var(--midBg);
+}
+
+.middle {
+    width: calc(100vw - 30rem - 15rem);
+    height: calc(100vh - 10rem);
+    background-color: var(--midBg);
+    overflow-y: scroll;
+}
+
+.middleRight {
+    position: fixed;
+    background-color: var(--midBg);
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 10rem);
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.musicListening {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 1rem;
+    padding: 0rem 2rem 0 2rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.musicListeningTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: var(--grayish);
+    position: absolute;
+    top: 2rem;
+}
+
+.musicListeningTop h3 {
+    margin: 0;
+}
+
+#musicTopIcon {
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10rem;
+    transition: all .3s;
+}
+
+#musicTopIcon:hover {
+    color: var(--mainC);
+}
+
+.track-title {
+    margin-top: 1rem;
+    color: white;
+}
+
+.cover {
+    width: 10rem;
+    height: 10rem;
+    border: 10px var(--mainC) solid;
+    border-radius: 50%;
+    animation-delay: 0;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
+
+@keyframes musicDisc {
+    from {
+        transform: rotate(1turn);
+    }
+
+    to {
+        transform: rotate(2turn);
+    }
+}
+
+.musicHead {
+    margin-top: 5rem;
+    position: relative;
+}
+
+.musicCircle {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: var(--mainC);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0px 0px 5px black);
+    z-index: 100;
+}
+
+span,
+small {
+    color: #eee;
+
+}
+
+small {
+    font-size: larger;
+}
+
+.timeline-slider {
+    margin-top: 3rem;
+    width: 20rem;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range-slider {
+    margin-top: .4em;
+    position: relative;
+    display: flex;
+    user-select: none;
+}
+
+.slider {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: .4em;
+    outline: none;
+    border-radius: 1rem;
+    background-color: black;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    z-index: 3;
+    position: relative;
+}
+
+.timeline-slider .slider-thumb {
+    width: 1.7em;
+    height: 1.7em;
+    background-image: radial-gradient(rgb(80, 80, 80), rgb(59, 59, 59));
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.timeline-slider .slider-thumb::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: .9rem;
+    height: .9rem;
+    border-radius: inherit;
+    transition: .3s;
+    background-color: var(--mainC);
+}
+
+.timeline-slider .range-slider:hover .slider-thumb:before {
+    background-color: white;
+}
+
+.progress {
+    width: 50%;
+    height: .4em;
+    border-radius: 1rem;
+    background-image: linear-gradient(90deg, rgb(99, 22, 214), #360bd3);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    pointer-events: none;
+}
+
+.volume-slider {
+    width: 12rem;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.volume-slider .slider::-webkit-slider-thumb {
+    width: 0;
+}
+
+.volume-icon {
+    margin: 0 .5em;
+    cursor: pointer;
+}
+
+.volume-icon span {
+    font-size: 2em;
+}
+
+.btn {
+    border: none;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.btn:hover {
+    background-color: var(--mainC);
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
+
+.btn-main {
+    background: var(--mainC);
+    width: 4.5em;
+    height: 4.5em;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
+
+.btn-main span {
+    color: #fff;
+}
+
+#btnPrev,
+#btnNext {
+    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+}
+
+#btnPrev:hover,
+#btnNext:hover {
+    filter: drop-shadow(0px 0px 0px);
+}
+
+.controls {
+    margin-top: 2rem;
+}
+
+.controls .btn {
+    margin: 1em;
+}
+
+.musicLyrics {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--grayish);
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.musicLyrics h5 {
+    margin: 0;
+}
+
+.introduction{
+    background-color: var(--gray);
+    height: 30rem;
+    width: 95%;
+    border-radius: 1rem;
+    margin: 0 auto;
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
+
+.introductionMain{
+    display: flex;
+    height: 30rem;
+}
+
+.introductionText{
+    padding: 1rem;
+    background-color: rgba(0,0,0,.6);
+    border-radius: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-75%,-75%);
+    z-index: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 30rem;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 22px 70px 4px;
+    animation-name: slideshowMain;
+    animation-duration: .8s;
+    animation-delay: 0s;
+    padding-left: 3rem;
+}
+
+.introductionText h6{
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.introductionIMGFirst, .introductionIMGSecond, .introductionIMGThird{
+    position: relative;
+    border-radius: 1rem;
+    width: 100%;
+    height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.introductionIMGFirst{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.introductionIMGSecond{
+    background-image:url("./assets/covers/musicpfp1.jpg");
+}
+
+.introductionIMGThird{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.introductionPerformer{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation-name: slideLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: .2s;
+}
+
+@keyframes slideLeft {
+    from{
+        margin-left: -4rem;
+    }
+
+    to{
+        margin-left: 0rem;
+    }
+}
+
+.slideRightAnimation{
+    animation-name: slideRight;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+@keyframes slideRight {
+    from{
+        margin-left: 10rem;
+    }
+
+    to{
+        margin-left: 0rem;
+    }
+}
+
+.introductionPerformer h3{
+    margin: 0;
+}
+
+.introductionPerformer h3 a{
+    text-decoration: none;
+    color: var(--mainC);
+    font-weight: 800;
+    letter-spacing: 2px;
+   
+}
+
+.introductionInteract{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation-name: appear;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+.introductionInteract button{
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    border: 0;
+    transition: all .3s;
+    filter: drop-shadow(1px 0px 10px var(--mainC))
+}
+
+.introductionInteract button:hover{
+    background-color: var(--mainC);
+    scale: 1.01;
+    color: white;
+}
+
+#introductionHeart{
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+#introductionHeart:hover{
+    color: var(--mainC);
+}
+
+.carousel-control-prev, .carousel-control-next{
+    width: 5rem;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-control-prev{
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.carousel-control-next{
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.sliderWrapper{
+    position: relative;
+    margin-top: 5rem;
+}
+  
+.slideButton {
+    position: absolute;
+    top: 50%;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    z-index: 5;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    font-size: 2.2rem;
+    background-color: rgba(10,10,10, .7);
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    transition: background-color .3s;
+    border-radius: 50%;
+    border: 1px solid rgb(90, 90, 90);
+}
+  
+.slideButton:hover{
+    background-color: rgb(92, 92, 92);
+}
+  
+#prevSlide {
+    top: -30px;
+    right: calc(0rem + 50px);
+}
+  
+#nextSlide {
+    top: -30px;
+    right: 0rem;
+}
+
+.slideList{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+    overflow-x: scroll;
+    padding-bottom: 1rem;
+}
+
+.recommendedTopArtists{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 5rem auto;
+}
+
+.topArtistsText{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.topArtistsText h1{
+    font-size: 2rem;
+    text-shadow: 1px 10px 10px black;
+}
+
+.topArtistsText h2, .topArtistsText h1{
+    margin: 0;
+}
+
+.topArtistsText h2 a{
+    text-decoration: none;
+    color: var(--mainC);
+    font-size: 1.5rem;
+}
+
+.topArtistsText h2 a:hover{
+    text-decoration: underline;
+}
+
+#topArtistsBreak{
+    display: none;
+}
+
+.topArtists{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    height: 20rem;
+    transition: all .2s;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.topArtists:hover{
+    background-color: rgba(82, 82, 82, 0.2);
+}
+
+.topArtRad{
+    border-radius: 50%;
+}
+
+#ArtistOneIMG, #ArtistTwoIMG, #ArtistThreeIMG, #ArtistFourIMG{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+}
+
+#ArtistOneIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#ArtistTwoIMG{
+    background-image:url("./assets/covers/musicpfp1.jpg");
+}
+
+#ArtistThreeIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#ArtistFourIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.ArtistText{
+    text-align: center;
+}
+
+.ArtistText h3{
+    margin: 1rem 0 0 0;
+}
+
+.ArtistText h3 a, .AlbumText h3 a, .AlbumText h6 a, .recentlyPlayedText h3 a, .recentlyPlayed h6 a{
+    color: white;
+    text-decoration: none;
+}
+
+.recommendedTopAlbums{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+}
+
+
+.topAlbums{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: blue; */
+    width: 14rem;
+    height: 17rem;
+    margin: 1rem 0 0 0;
+    transition: all .2s;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.topAlbums:hover{
+    background-color: rgba(82, 82, 82, 0.2);
+}
+
+.AlbumText{
+    /* background-color: red; */
+    width: 12rem;
+    text-align: start;
+}
+
+.AlbumText h6 a{
+    color: rgb(155, 155, 155);
+}
+
+.AlbumText h6 a:hover{
+    text-decoration: underline;
+}
+
+.AlbumText h3, .AlbumText h6{
+    margin: 0;
+}
+
+#AlbumOneIMG, #AlbumTwoIMG, #AlbumThreeIMG, #AlbumFourIMG{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 12rem;
+    width: 12rem;
+}
+
+#AlbumOneIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#AlbumTwoIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#AlbumThreeIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#AlbumFourIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+.recentlyPlayedByUser{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    /* background-color: blue; */
+}
+
+.recentlyPlayed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 14rem;
+    height: 17rem;
+    margin: 1rem 0 0 0;
+    transition: all .2s;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.recentlyPlayed:hover{
+    background-color: rgba(82, 82, 82, 0.2);
+}
+
+.recentlyPlayedText{
+    width: 12rem;
+    text-align: start;
+}
+
+.recentlyPlayedText h6 a{
+    color: rgb(155, 155, 155);
+}
+
+.recentlyPlayedText h6 a:hover{
+    text-decoration: underline;
+}
+
+.recentlyPlayedText h3, .recentlyPlayedText h6{
+    margin: 0;
+}
+
+#recentlyPlayedOneIMG, #recentlyPlayedTwoIMG, #recentlyPlayedThreeIMG, #recentlyPlayedFourIMG{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 12rem;
+    width: 12rem;
+}
+
+#recentlyPlayedOneIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#recentlyPlayedTwoIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#recentlyPlayedThreeIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+#recentlyPlayedFourIMG{
+    background-image: url("https://www.lifeandstylemag.com/wp-content/uploads/2022/08/ryan-gosling-net-worth-feature.jpg?crop=0px%2C91px%2C3436px%2C1806px&resize=1200%2C630&quality=86&strip=all");
+}
+
+
+
+@media (max-width:1500px) {
+    .leftSide {
+        width: 5rem;
+    }
+
+    .leftSideTitleText {
+        display: none;
+    }
+
+    .leftSide,
+    .leftSideFlex,
+    .leftSideTitle,
+    .leftSideMain,
+    .leftSideLogout {
+        width: 5rem;
+    }
+
+    .leftSideTitleText {
+        display: none;
+    }
+
+    .leftSidePlaylistsText h4 {
+        display: none;
+    }
+
+    .leftMainIcon {
+        color: var(--mainC);
+    }
+
+    .leftSideFlex {
+        padding: .5rem 0rem .5rem 1.3rem;
+        margin: 0;
+        width: 4rem;
+    }
+
+    .leftMainIcons {
+        font-size: 1.35rem;
+    }
+
+    .leftSideFlex h5 {
+        display: none;
+    }
+
+    .leftSideLogout .leftSideFlex .leftMainIcons {
+        margin-left: .2rem;
+    }
+
+    nav {
+        width: calc(100vw - 5rem);
+    }
+
+    .middle {
+        width: calc(100vw - 30rem - 5rem);
+    }
+}
+
+@media (max-width:1250px) {
+    .middle {
+        width: calc(100vw - 5rem);
+        height: calc(100vh - 10rem - 10rem);
+    }
+
+    .middleRight {
+        width: calc(100vw - 5rem);
+        height: 10rem;
+    }
+
+    .musicListening {
+        border-radius: 0;
+        padding: .2rem 2rem;
+    }
+
+    .musicListeningTop {
+        top: 1rem;
+    }
+
+    .controls{
+        margin: 0;
+    }
+
+    .controls .btn {
+        margin: 0;
+    }
+
+    .musicHead {
+        margin-top: 0 !important;
+    }
+
+    .track-title {
+        margin: 0;
+    }
+
+    .timeline-slider,
+    .volume-slider {
+        margin: 0;
+    }
+
+    .musicLyrics {
+        margin-top: 2rem !important;
+    }
+
+    .musicListeningTop h3{
+        display: none;
+    }
+
+    .musicListeningTop{
+        right: 1rem;
+    }
+
+    .cover{
+        width: 5rem;
+        height: 5rem;
+        border: 5px var(--mainC) solid;
+    }
+    
+    .musicCircle{
+        width: .7rem;
+        height: .7rem;
+    }
+}
+
+@media (max-width:950px) {
+    .musicListening{
+       gap: 1rem;
+    }
+
+    .musicHead{
+        display: none;
+    }
+}
+
+@media (max-width:900px) {
+    .musicListening{
+        
+    }
+}
+
+
+
+
+@media (max-height:900px) {
+    .timeline-slider {
+        margin-top: 1rem;
+    }
+
+    .controls {
+        margin: 0;
+    }
+}
+
+@media (max-height:845px) {
+    .musicLyrics {
+        margin-top: 0rem;
+    }
+}
+
+@media (max-height:800px) {
+    .musicListeningTop {
+        top: 1rem;
+    }
+
+    .controls .btn {
+        margin: 0;
+    }
+
+    .musicHead {
+        margin-top: 1.5rem;
+    }
+
+    .track-title {
+        margin: 0;
+    }
+
+    .timeline-slider,
+    .volume-slider {
+        margin: 0;
+    }
+
+    .musicLyrics {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-height:680px) {
+    
+}
