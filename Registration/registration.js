@@ -215,6 +215,10 @@ function passwordConfirmation(inputField, button, prevButton,arrow, tick, cross)
 
 }
 
+function configFocusOut (){
+    return
+}
+
 // Függvények vége------------> 
 
 const h3 = document.querySelector('.rHeader h3');
@@ -440,8 +444,3 @@ email_input.addEventListener('focusout', () => {
         }
     }
 })
-
-
-    
-
-    
