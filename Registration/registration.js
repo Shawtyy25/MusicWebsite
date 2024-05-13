@@ -13,6 +13,22 @@ function buttonRight(button) {
 
 }
 
+function buttonRecover(btn) {
+    btn.style.opacity = ''
+    btn.style.visibility = ''
+    btn.style.border = ''
+    btn.style.color = ''
+    
+    btn.addEventListener('mouseover', () => {
+        btn.style.border = ''
+        btn.style.color = ''
+    })
+    btn.addEventListener('mouseout', () => {
+        btn.style.border = ''
+        btn.style.color = ''
+    })
+}
+
 
 function buttonOnPress(windowForm, appearingWindow, appearingWindowForm,  tickIcon, arrowIcon, crossIcon, button, correctInput, nextInputField) {
     button.addEventListener('click', () => {
@@ -202,8 +218,6 @@ function passwordFocusOut(inputField, button, arrowIcon, tickIcon, crossIcon) {
 
 }
 
-
-
 function passwordConfirmation(inputField, button, prevButton,arrow, tick, cross) {
     inputField.style.display = 'flex'
     button.style.display = 'flex'
@@ -211,17 +225,22 @@ function passwordConfirmation(inputField, button, prevButton,arrow, tick, cross)
     arrow.style.display = 'flex'
     tick.style.display = ''
     cross.style.display = ''
-
-
 }
 
-function configFocusOut (){
-    return
+
+
+// jelszó ellenőrző függvények --------------> 
+function configFocusOut() {
+    if (passwordConfInput.value === passwordInput.value) {
+        buttonRight(resume_Pconf)
+    } else {
+        buttonRecover(resume_Pconf)
+    }
 }
 
 // Függvények vége------------> 
 
-const h3 = document.querySelector('.rHeader h3');
+const h3 = document.querySelector('.rHeader h3')
 const rHeader = document.querySelector('.rHeader')
 const email = document.querySelector('.email')
 const emailForm = document.querySelector('.emailForm')
@@ -392,12 +411,6 @@ email_input.addEventListener('focusout', () => {
                                 passwordCheckMid(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3, passwordGuide);
                                 passwordCheckCorrect(passwordInput, passwordChecker, passwordMiniGuide, line1, line2, line3, passwordGuide)
 
-                                
-                                // Jelszó ellenőrző folytatása!!! -->>  
-
-                                resume_P.addEventListener('click', () => {
-                                    passwordConfirmation(passwordConf, resume_Pconf, resume_P, arrow_Pconf, correct_Pconf, mistake_Pconf)
-                                })
                             }
 
                             passwordInput.addEventListener('focusout', () => {
@@ -442,5 +455,16 @@ email_input.addEventListener('focusout', () => {
 
             })
         }
+    }
+})
+
+
+passwordInput.addEventListener('focusout', () => {
+    if (passwordInput.value.length > 8) {
+        resume_P.addEventListener('click', () => {
+            passwordChecker.style.display = ''
+            passwordConf.style.display = 'flex'
+        })
+        
     }
 })
